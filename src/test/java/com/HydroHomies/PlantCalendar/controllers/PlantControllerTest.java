@@ -1,5 +1,7 @@
 package com.HydroHomies.PlantCalendar.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -27,5 +29,9 @@ class PlantControllerTest {
         mvc.perform(MockMvcRequestBuilders.get("/api/plants").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("[]")));
+    }
+
+    private static String getJsonContent(Object o) throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(o);
     }
 }
