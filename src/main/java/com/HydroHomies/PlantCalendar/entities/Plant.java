@@ -10,7 +10,8 @@ public class Plant {
     @Id
     @GeneratedValue
     private long id;
-    
+
+    @Column
     private String name;
 
     private int waterPerWeek;
