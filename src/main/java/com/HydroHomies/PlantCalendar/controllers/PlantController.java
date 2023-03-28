@@ -17,7 +17,7 @@ public class PlantController {
     }
 
     @GetMapping("/plants")
-    public Iterable<Plant> getPlants(){
+    public Iterable<Plant> getPlants() {
         return plantRepository.findAll();
     }
 

@@ -1,19 +1,16 @@
 package com.HydroHomies.PlantCalendar.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Plant {
-    public Plant () {}
-
+    public Plant() {
+    }
 
     @Id
     @GeneratedValue
     private long id;
-
-
+    
     private String name;
 
     private int waterPerWeek;
@@ -37,10 +34,11 @@ public class Plant {
         this.imgURL = imgURL;
     }
 
-    public void setNotes(final String notes){
+    public void setNotes(final String notes) {
         this.notes = notes;
     }
-    public void setId (final long id){
+
+    public void setId(final long id) {
         this.id = id;
     }
 
@@ -75,15 +73,5 @@ public class Plant {
     public String getImgURL() {
         return imgURL;
     }
-
-    private void setSucculentPlant() {
-        this.name = "Succulent";
-        this.waterPerWeek = 1;
-        this.waterAmount = "Low";
-        this.lightLevel = "High";
-        this.petFriendly = true;
-        this.imgURL = "https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778";
-    }
-
 
 }
