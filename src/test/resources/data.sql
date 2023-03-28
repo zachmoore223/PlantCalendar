@@ -1,3 +1,2 @@
-INSERT INTO plantapi (name, waterPerWeek, waterAmount, lightLevel, petFriendly, imgURL)
-            VALUES ("Succulent", 1, "Low", "High", true, "https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778");
-
+INSERT INTO plantapi.plant (name, water_per_week, water_amount, light_level, pet_friendly, imgurl)
+VALUES ('Succulent', 1, 'Low', 'High', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778');

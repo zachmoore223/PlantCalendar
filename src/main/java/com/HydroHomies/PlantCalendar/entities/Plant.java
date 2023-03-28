@@ -13,18 +13,18 @@ public class Plant {
 
     @Column
     private String name;
-
+    @Column
     private int waterPerWeek;
-
+    @Column
     private String waterAmount;
-
+    @Column
     private String lightLevel;
-
+    @Column
     private boolean petFriendly;
+    @Column
+    private String imgURL;
 
     private String notes;
-
-    private String imgURL;
 
     public Plant(String name, int waterPerWeek, String waterAmount, String lightLevel, boolean petFriendly, String imgURL) {
         this.name = name;
