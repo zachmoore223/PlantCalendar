@@ -62,4 +62,13 @@ public class UserController {
 
     }
 
+    @DeleteMapping("/users/{username}/plantCollection/{plant_id}")
+    public void deletePlantToUser(@PathVariable String username, @PathVariable Long plant_id) throws Exception {
+        User user = userRepository.findById(username).orElseThrow(() -> new Exception("Username not found: " + username));
+        user.removePlant(plant_id);
+
+        userRepository.save(user);
+    }
+
+
 }
