@@ -2,6 +2,8 @@ package com.HydroHomies.PlantCalendar.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 public class Plant {
     public Plant() {

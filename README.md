@@ -10,3 +10,5 @@
 
 * GET ALL PLANTS - /api/plants
 * GET SPECIFIED PLANT - /api/plants/{plant_id}
+* GET ALL USERS - curl -X POST http://localhost:8080/api/users -H 'Content-Type: application/json' -d '{"username": "Test"}'
+* PUT PLANT IN USER COLLECTION - curl -X PUT http://localhost:8080/api/users/Test/plantCollection/1 -H 'Content-Type: application/json'
