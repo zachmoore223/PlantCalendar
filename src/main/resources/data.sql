@@ -1,2 +1,2 @@
-INSERT INTO plant (name, waterPerWeek, waterAmount, lightLevel, petFriendly, imgURL)
+INSERT INTO plant (name, water_per_Week, water_Amount, light_Level, pet_Friendly, img_URL)
 VALUES ('Succulent', 1, 'Low', 'High', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778');
