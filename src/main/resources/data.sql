@@ -1,0 +1,2 @@
+INSERT INTO plantapi.plant(id, name, water_per_Week, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Succulent', 1, 'Low', 'High', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778');
+update plant_seq set next_val = next_val + 1;
