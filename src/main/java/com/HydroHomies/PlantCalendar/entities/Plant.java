@@ -26,7 +26,7 @@ public class Plant {
     @Column
     private String imgURL;
 
-    private String notes;
+    private String notes = "";
 
     public Plant(String name, int waterPerWeek, String waterAmount, String lightLevel, boolean petFriendly, String imgURL) {
         this.name = name;
