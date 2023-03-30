@@ -11,6 +11,7 @@ public class Plant {
 
     @Id
     @GeneratedValue
+    @Column
     private long id;
 
     @Column

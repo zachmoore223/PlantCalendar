@@ -1,8 +1,6 @@
 package com.HydroHomies.PlantCalendar.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,7 +12,8 @@ public class User {
     @Id
     private String username;
 
-    @OneToMany
+    @ManyToMany()
+    @JoinTable()
     private Map<Long, Plant> userPlants = new HashMap<>();
 
     public User () {
