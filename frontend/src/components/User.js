@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Plant from './Plant';
 
 export default function User() {
   const [text, setText] = useState('');
@@ -34,10 +35,11 @@ export default function User() {
   const isSent = status === 'sent';
 
   if (isSent) {
-    return     <div class="inline-div">
+    return     <div className="inline-div">
                    {users
                    .filter(user => user.username == text)
                    .map(user => (<h1 key={user.username}> Welcome {user.username}</h1>))}
+                   <Plant />
                </div>
   }
 
