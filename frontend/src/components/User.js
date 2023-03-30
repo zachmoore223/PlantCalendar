@@ -38,8 +38,13 @@ export default function User() {
     return     <div className="inline-div">
                    {users
                    .filter(user => user.username == text)
-                   .map(user => (<h1 key={user.username}> Welcome {user.username}</h1>))}
-                   <Plant />
+                   .map(user => (
+                        <div>
+                            <h1 key={user.username}> Welcome {user.username}</h1>
+                            <Plant user={user}/>
+                        </div>
+                   ))}
+
                </div>
   }
 
@@ -90,3 +95,7 @@ function makeSureUserExists (users, text) {
 
     return check;
 }
+
+//function getUser ({user}){
+//       return ({user.username});
+//}

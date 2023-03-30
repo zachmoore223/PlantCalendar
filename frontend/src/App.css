@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#plantImages {
+    width: 200px;
+}
+
+button {
+    height: 45px;
+    width: 90px;
+}
