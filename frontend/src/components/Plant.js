@@ -16,7 +16,7 @@ export default function Plant({user}) {
                            <img src={plant.imgURL} id="plantImages" />
                            <br />
 
-//                           <button onClick={AddPlant(user, plant)} >Add Plant</button>
+                           <button onclick={addPlant(user, plant)}>Add Plant</button>
 
                            </div>
 
@@ -27,11 +27,11 @@ export default function Plant({user}) {
 
 }
 
-//function AddPlant(user, plant) {
-//                  fetch("http://localhost:8080/api/users/" + user.username + "/plantCollection/" + plant.id,
-//                  {'method': 'PUT', 'cache': 'default'})
-//                          .then(res => res.json());                          ;
-//}
+function addPlant(user, plant) {
+                  fetch("http://localhost:8080/api/users/" + user.username + "/plantCollection/" + plant.id,
+                  {'method': 'PUT', 'cache': 'default'})
+                          .then(res => res.json());
+}
 
 
 
