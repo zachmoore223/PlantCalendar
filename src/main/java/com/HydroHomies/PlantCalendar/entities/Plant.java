@@ -27,8 +27,6 @@ public class Plant {
     @Column
     private String imgURL;
 
-    private String notes = "";
-
     public Plant(String name, int waterPerWeek, String waterAmount, String lightLevel, boolean petFriendly, String imgURL) {
         this.name = name;
         this.waterPerWeek = waterPerWeek;
@@ -36,10 +34,6 @@ public class Plant {
         this.lightLevel = lightLevel;
         this.petFriendly = petFriendly;
         this.imgURL = imgURL;
-    }
-
-    public void setNotes(final String notes) {
-        this.notes = notes;
     }
 
     public void setId(final long id) {
@@ -68,10 +62,6 @@ public class Plant {
 
     public boolean isPetFriendly() {
         return petFriendly;
-    }
-
-    public String getNotes() {
-        return notes;
     }
 
     public String getImgURL() {
