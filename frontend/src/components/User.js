@@ -35,12 +35,12 @@ export default function User() {
   const isSent = status === 'sent';
 
   if (isSent) {
-    return     <div className="inline-div">
+    return     <div>
                    {users
                    .filter(user => user.username == text)
                    .map(user => (
-                        <div>
-                            <h1 key={user.username}> Welcome {user.username}</h1>
+                        <div  key={user.username}>
+                            <h1> Welcome {user.username}</h1>
                             <Plant user={user}/>
                         </div>
                    ))}
