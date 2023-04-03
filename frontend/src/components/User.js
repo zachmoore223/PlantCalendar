@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Plant from "./Plant";
 
+
 export default function User() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState("typing");
