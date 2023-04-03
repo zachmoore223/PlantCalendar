@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import User from "./User";
+import CreateICS from "./CreateICS";
 
 export default function Plant({ user }) {
   const [plants, setPlants] = useState([]);
@@ -42,6 +43,9 @@ export default function Plant({ user }) {
         <tr><PlantCollection user = {user}/></tr>
         </tbody>
       </table>
+      
+      <CreateICS />
+
       <table>
       <thead>
       </thead>
@@ -50,6 +54,7 @@ export default function Plant({ user }) {
         <tr>{listPlants2}</tr>
       </tbody>
       </table>
+
     </div>
   );
 }

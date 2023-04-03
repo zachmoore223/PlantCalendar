@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Plant from "./Plant";
-import CreateICS from "./CreateICS";
+
 
 export default function User() {
   const [text, setText] = useState("");
@@ -44,7 +44,6 @@ export default function User() {
             <div key={user.username}>
               <h1> Welcome {user.username}</h1>
               <Plant user={user} />
-              <CreateICS />
             </div>
           ))}
       </div>
