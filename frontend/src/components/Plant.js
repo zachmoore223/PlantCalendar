@@ -9,21 +9,37 @@ export default function Plant({user}) {
                 .then(response => setPlants(response));
            }, [user]);
 
-    const listPlants = plants.map(plant => (
-           <div key={plant.id}>
-                 <h4>{plant.name}</h4>
-                     <img src={plant.imgURL} id="plantImages" />
-                         <br />
-                             <button onClick={() => addPlant(user, plant)}>Add Plant</button>
+    const listPlants1 = plants
+                        .filter(plant => plant.id <= 5)
+                        .map(plant => (
+                                   <td key={plant.id}>
+                                     <h4>{plant.name}</h4>
+                                     <img src={plant.imgURL} id="plantImages" />
+                                     <br />
+                                     <button onClick={() => addPlant(user, plant)}>Add Plant</button>
+                                   </td>));
 
-           </div>
-    ));
-
+        const listPlants2 = plants
+                            .filter(plant => plant.id > 5)
+                            .map(plant => (
+                                       <td key={plant.id}>
+                                         <h4>{plant.name}</h4>
+                                         <img src={plant.imgURL} id="plantImages" />
+                                         <br />
+                                         <button onClick={() => addPlant(user, plant)}>Add Plant</button>
+                                       </td>));
 
 
     return(
             <div>
-                  {listPlants}
+            <table>
+                <tr>
+                  {listPlants1}
+                </tr>
+                <tr>
+                  {listPlants2}
+                </tr>
+            </table>
             </div>
             );
 
