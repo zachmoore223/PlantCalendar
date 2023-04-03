@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Plant from "./Plant";
 
-export default function User() {
+export default function CreateUser() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
@@ -20,13 +19,12 @@ export default function User() {
     e.preventDefault();
     setStatus("sending");
     await sendMessage(text);
-
-    //if text is empty when user submits reset status to typing
-    let userExists = makeSureUserExists(users, text);
-
-    if (text == "" || userExists == false) {
+    /*if text is empty when user submits reset status to typing
+    and do not add the blank user to the API */
+    if (text == "") {
       setStatus("typing");
     } else {
+      postNewUser(text);
       setStatus("sent");
     }
   }
@@ -37,36 +35,25 @@ export default function User() {
   if (isSent) {
     return (
       <div>
-        {users
-          .filter((user) => user.username == text)
-          .map((user) => (
-            <div key={user.username}>
-              <h1> Welcome {user.username}</h1>
-              <Plant user={user} />
-            </div>
-          ))}
+        <p>User {text} created.</p>
       </div>
     );
   }
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <br />
       <form onSubmit={handleSubmit}>
-        <h3>Login Here:</h3>
         <input
           disabled={isSending}
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-
         <br />
 
-        <button disabled={isSending} type="submit">
-          Login
-        </button>
+        <button disabled={isSending}>Create User</button>
 
-        {isSending && <p>Logging in...</p>}
+        {isSending && <p>Creating User... </p>}
       </form>
     </div>
   );
@@ -75,23 +62,19 @@ export default function User() {
 // Pretend to send a message.
 function sendMessage(text) {
   return new Promise((resolve) => {
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, 3000);
   });
 }
 
-function makeSureUserExists(users, text) {
-  console.log(users);
-  let check = false;
-
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].username == text) {
-      check = true;
-    }
-  }
-
-  return check;
+function postNewUser(text) {
+  fetch("http://localhost:8080/api/users", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username: text }),
+  })
+    .then((response) => response.json())
+    .then((response) => console.log(JSON.stringify(response)));
 }
-
-//function getUser ({user}){
-//       return ({user.username});
-//}
