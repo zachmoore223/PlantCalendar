@@ -33,9 +33,22 @@ export default function Plant({ user }) {
 
   return (
     <div>
+
       <table>
+        <thead>
+        <tr><th>{user.username}'s cart:</th></tr>
+        </thead>
+        <tbody>
+        <tr><PlantCollection user = {user}/></tr>
+        </tbody>
+      </table>
+      <table>
+      <thead>
+      </thead>
+      <tbody>
         <tr>{listPlants1}</tr>
         <tr>{listPlants2}</tr>
+      </tbody>
       </table>
     </div>
   );
@@ -50,3 +63,15 @@ function addPlant(user, plant) {
     { method: "PUT", cache: "default" }
   );
 }
+
+
+ function PlantCollection ({user}){
+ return(
+    user.allPlants.map((plant) => (
+    <td key={plant.id}>
+       <p>{plant.name} &nbsp;| &nbsp; </p>
+    </td>
+
+    )));
+ }
+
