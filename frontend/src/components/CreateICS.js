@@ -8,13 +8,13 @@ const ics = require('ics')
 
 const { error, value } = ics.createEvents([
   {
-    title: 'Lunch',
-    start: [2018, 1, 15, 12, 15],
-    duration: { minutes: 45 }
+    title: 'Water Lily',
+    start: [2023, 1, 1, 12, 0],
+    recurrenceRule: 'FREQ=DAILY;INTERVAL=2',
   },
   {
     title: 'Dinner',
-    start: [2018, 1, 15, 12, 15],
+    start: [2023, 1, 15, 12, 15],
     duration: { hours: 1, minutes: 30 }
   }
 ])
