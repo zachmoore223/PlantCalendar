@@ -18,6 +18,9 @@ var today = new Date();
     duration: {minutes: 30},
     title: plant.name,
     recurrenceRule: plant.wateringSchedule,
+    description: 'Water Amount: '+ plant.waterAmount +
+                  ', Light Level: '+ plant.lightLevel +
+                  ', Pet Friendly: '+ plant.petFriendly,
     }
     ))
 
