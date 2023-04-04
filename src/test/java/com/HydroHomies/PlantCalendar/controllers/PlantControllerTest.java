@@ -35,7 +35,7 @@ class PlantControllerTest {
 
     @Test
     public void postPlant() throws Exception {
-        Plant test = new Plant("Test", 1, "Low", "High", true, "testURL");
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         test.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/plants")
                         .accept(MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ class PlantControllerTest {
 
     @Test
     public void getPlant() throws Exception {
-        Plant test = new Plant("Test", 1, "Low", "High", true, "testURL");
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         test.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/plants")
                         .accept(MediaType.APPLICATION_JSON)

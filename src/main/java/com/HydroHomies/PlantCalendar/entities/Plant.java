@@ -2,8 +2,6 @@ package com.HydroHomies.PlantCalendar.entities;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-
 @Entity
 public class Plant {
     public Plant() {
@@ -17,7 +15,7 @@ public class Plant {
     @Column
     private String name;
     @Column
-    private int waterPerWeek;
+    private String wateringSchedule;
     @Column
     private String waterAmount;
     @Column
@@ -27,9 +25,9 @@ public class Plant {
     @Column
     private String imgURL;
 
-    public Plant(String name, int waterPerWeek, String waterAmount, String lightLevel, boolean petFriendly, String imgURL) {
+    public Plant(String name, String wateringSchedule, String waterAmount, String lightLevel, boolean petFriendly, String imgURL) {
         this.name = name;
-        this.waterPerWeek = waterPerWeek;
+        this.wateringSchedule = wateringSchedule;
         this.waterAmount = waterAmount;
         this.lightLevel = lightLevel;
         this.petFriendly = petFriendly;
@@ -48,8 +46,8 @@ public class Plant {
         return name;
     }
 
-    public int getWaterPerWeek() {
-        return waterPerWeek;
+    public String getWateringSchedule() {
+        return wateringSchedule;
     }
 
     public String getWaterAmount() {
