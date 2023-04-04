@@ -43,8 +43,8 @@ export default function Plant({ user }) {
         <tr><PlantCollection user = {user}/></tr>
         </tbody>
       </table>
-      
-      <CreateICS />
+
+      <CreateICS user={user} />
 
       <table>
       <thead>
