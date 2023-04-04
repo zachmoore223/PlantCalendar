@@ -4,6 +4,8 @@ export default function CreateUser() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
+  const [displayCreatedUser, setDisplayCreatedUser] = useState("Create a user");
+
   useEffect(() => {
     const periodicallyFetch = setInterval(
       () =>
@@ -15,30 +17,24 @@ export default function CreateUser() {
     return () => clearInterval(periodicallyFetch);
   }, []);
 
-  async function handleSubmit(e) {
+ function handleSubmit(e) {
     e.preventDefault();
     setStatus("sending");
-    await sendMessage(text);
+    sendMessage(text);
     /*if text is empty when user submits reset status to typing
     and do not add the blank user to the API */
     if (text == "") {
       setStatus("typing");
     } else {
       postNewUser(text);
-      setStatus("sent");
+      setText("");
+      setStatus("typing");
+      setDisplayCreatedUser("User " + text + " created.");
     }
   }
 
   const isSending = status === "sending";
   const isSent = status === "sent";
-
-  if (isSent) {
-    return (
-      <div>
-        <p>User {text} created.</p>
-      </div>
-    );
-  }
 
   return (
     <div>
@@ -52,9 +48,8 @@ export default function CreateUser() {
         <br />
 
         <button disabled={isSending}>Create User</button>
-
-        {isSending && <p>Creating User... </p>}
       </form>
+      <p>{displayCreatedUser}</p>
     </div>
   );
 }
