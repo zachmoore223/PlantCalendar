@@ -4,7 +4,7 @@ export default function CreateUser() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
-  const [displayCreatedUser, setDisplayCreatedUser] = useState("Create a user");
+  const [displayCreatedUser, setDisplayCreatedUser] = useState("");
 
   useEffect(() => {
     const periodicallyFetch = setInterval(
