@@ -82,11 +82,21 @@ function addPlant(user, plant) {
     );
 }
 
+function removePlant(user, plant) {
+    fetch(
+        "http://localhost:8080/api/users/" +
+        user.username +
+        "/plantCollection/" +
+        plant.id,
+        { method: "DELETE", cache: "default" }
+    );
+}
+
 function PlantCollection({ user }) {
     return (
         user.allPlants.map((plant) => (
             <td key={plant.id}>
-                <p>{plant.name} &nbsp;| &nbsp; </p>
+                <p>{plant.name} &nbsp; <button onClick={() => removePlant(user, plant)}>X</button> &nbsp;| &nbsp; </p>
             </td>
         ))
     );
