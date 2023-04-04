@@ -9,7 +9,7 @@ class UserTest {
     @Test
     public void testUser () {
         User test = new User("Jimbob");
-        Plant testPlant = new Plant("Test", 1, "Low", "High", true, "url");
+        Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "url");
         test.addPlant(testPlant);
         assertEquals("Jimbob", test.getUsername());
         assertEquals(1, test.getAllPlants().size());
