@@ -4,20 +4,24 @@ import { createEvent } from "ics";
 import { saveAs } from "file-saver";
 
 export default function CreateICS({user}) {
-const ics = require('ics')
 
-const { error, value } = ics.createEvents([
-  {
-    title: 'Succulent',
-    start: [2023, 1, 1, 12, 0],
-    recurrenceRule: 'FREQ=DAILY;INTERVAL=2',
-  },
-  {
-    title: 'Philodendron',
-    start: [2023, 1, 1, 12, 0],
-    recurrenceRule: 'FREQ=DAILY;INTERVAL=2',
-  }
-])
+
+function getCollection() {
+const ics = require('ics')
+const plantCollection = [];
+var today = new Date();
+
+    user.allPlants.map((plant) =>
+    plantCollection.push(
+    {
+    start: [today.getFullYear(), today.getMonth()+1, today.getDate(), 12, 0],
+    duration: {minutes: 30},
+    title: plant.name,
+    recurrenceRule: plant.wateringSchedule,
+    }
+    ))
+
+const { error, value } = ics.createEvents(plantCollection)
 
 if (error) {
   console.log(error)
@@ -30,10 +34,12 @@ console.log(value);
       const blob = new Blob([value], { type: "text/plain;charset=utf-8" });
       saveAs(blob, "event-schedule.ics");
   };
+  handleSave();
+ }
 
   return (
     <div>
-      <button onClick={handleSave}>Download Watering Schedule</button>
+      <button onClick={getCollection}>Download Watering Schedule</button>
     </div>
   );
 }
