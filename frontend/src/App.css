@@ -16,3 +16,19 @@
 #plantImages {
     width: 200px;
 }
+
+.plant-info img {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.plant-details {
+  font-size: large;
+  width: 200px;
+  word-wrap: anywhere;
+  padding: 16px;
+  box-sizing: border-box;
+  vertical-align: center;
+}
