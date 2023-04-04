@@ -6,6 +6,8 @@ export default function User() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
+  const [displayFail, setDisplayFail] = useState("");
+
   useEffect(() => {
     const periodicallyFetch = setInterval(
       () =>
@@ -17,16 +19,17 @@ export default function User() {
     return () => clearInterval(periodicallyFetch);
   }, []);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     setStatus("sending");
-    await sendMessage(text);
+    sendMessage(text);
 
     //if text is empty when user submits reset status to typing
     let userExists = makeSureUserExists(users, text);
 
     if (text == "" || userExists == false) {
       setStatus("typing");
+      setDisplayFail("User does not exist.")
     } else {
       setStatus("sent");
     }
@@ -34,6 +37,7 @@ export default function User() {
 
   const isSending = status === "sending";
   const isSent = status === "sent";
+
 
   if (isSent) {
     return (
@@ -49,6 +53,7 @@ export default function User() {
       </div>
     );
   }
+
 
   return (
     <div>
@@ -69,6 +74,7 @@ export default function User() {
 
         {isSending && <p>Logging in...</p>}
       </form>
+      <p>{displayFail}</p>
     </div>
   );
 }
@@ -93,6 +99,3 @@ function makeSureUserExists(users, text) {
   return check;
 }
 
-//function getUser ({user}){
-//       return ({user.username});
-//}
