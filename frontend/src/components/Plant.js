@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
 import CreateICS from "./CreateICS";
-import PlantInfo from "./PlantInfo";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
     const [selectedPlant, setSelectedPlant] = useState(null);
-    const [expandedPlantId, setExpandedPlantId] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
@@ -17,53 +15,39 @@ export default function Plant({ user }) {
     const listPlants1 = plants
         .filter((plant) => plant.id <= 5)
         .map((plant) => (
-            <td key={plant.id}>
+            <td key={plant.id} className="plant-container">
                 <h4>{plant.name}</h4>
-                <img src={plant.imgURL} id="plantImages" />
-                <br />
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
-                <button onClick={() => setExpandedPlantId(plant.id)}>Plant Info</button>
-                {expandedPlantId === plant.id && (
-                    <div className="plant-details">
-                        <p>Watering Schedule: {plant.wateringSchedule}</p>
-                        <p>
-                            Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}
-                        </p>
+                <div className="img-container">
+                    <img src={plant.imgURL} id="plantImages" />
+                    <div className="plant-info">
+                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
+                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
                         <p>Water Amount: {plant.waterAmount}</p>
                     </div>
-                )}
+                </div>
+                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
             </td>
         ));
 
     const listPlants2 = plants
         .filter((plant) => plant.id > 5)
         .map((plant) => (
-            <td key={plant.id}>
+            <td key={plant.id} className="plant-container">
                 <h4>{plant.name}</h4>
-                <img src={plant.imgURL} id="plantImages" />
-                <br />
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
-                <button onClick={() => setExpandedPlantId(plant.id)}>Plant Info</button>
-                {expandedPlantId === plant.id && (
-                    <div className="plant-details">
-                        <p>Watering Schedule: {plant.wateringSchedule}</p>
-                        <p>
-                            Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}
-                        </p>
+                <div className="img-container">
+                    <img src={plant.imgURL} id="plantImages" />
+                    <div className="plant-info">
+                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
+                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
                         <p>Water Amount: {plant.waterAmount}</p>
                     </div>
-                )}
+                </div>
+                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
             </td>
         ));
 
     return (
         <div>
-            {selectedPlant && (
-                <PlantInfo
-                    plant={selectedPlant}
-                    onClose={() => setSelectedPlant(null)}
-                />
-            )}
 
             <table>
                 <thead>
@@ -106,5 +90,22 @@ function PlantCollection({ user }) {
             </td>
         ))
     );
+}
+
+function parseWateringSchedule(schedule) {
+    const regex = /FREQ=(\w+);INTERVAL=(\d+)/;
+    const match = schedule.match(regex);
+
+    if (match) {
+        const frequency = match[1].toLowerCase();
+        const interval = parseInt(match[2], 10);
+
+        if (frequency === 'weekly') {
+            return `Water every ${interval} week${interval > 1 ? 's' : ''}`;
+        }
+        // Add more cases for different frequencies (e.g., 'daily', 'monthly') if needed.
+    }
+
+    return 'Unknown watering schedule';
 }
 

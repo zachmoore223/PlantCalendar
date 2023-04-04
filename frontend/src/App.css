@@ -24,11 +24,53 @@
   object-fit: cover;
 }
 
-.plant-details {
+.plant-container {
+  position: relative;
   font-size: large;
   width: 200px;
   word-wrap: anywhere;
   padding: 16px;
   box-sizing: border-box;
   vertical-align: center;
+}
+
+.plant-container:hover .plant-info {
+  display: block;
+}
+
+.plant-info {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.img-container {
+  position: relative;
+  display: inline-block;
+}
+
+.plant-container:hover .plant-info {
+  opacity: 1;
+}
+
+.plant-info {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;
 }
