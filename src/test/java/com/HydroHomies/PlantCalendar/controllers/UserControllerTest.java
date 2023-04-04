@@ -67,7 +67,7 @@ class UserControllerTest {
     public void addPlant() throws Exception {
         //create a new user and plant
         User testUser = new User ("Tester");
-        Plant testPlant = new Plant("Test", 1, "Low", "High", true, "testURL");
+        Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
         //post user to database
@@ -114,7 +114,7 @@ class UserControllerTest {
     public void deletePlant() throws Exception {
         //create a new user and plant
         User testUser = new User ("Tester");
-        Plant testPlant = new Plant("Test", 1, "Low", "High", true, "testURL");
+        Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
         //post user to database
@@ -168,7 +168,7 @@ class UserControllerTest {
         //create a new user and plant
         User testUser = new User ("Tester");
         User testUser2 = new User ("Tester2");
-        Plant testPlant = new Plant("Test", 1, "Low", "High", true, "testURL");
+        Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
         //post user to database

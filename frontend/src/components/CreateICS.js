@@ -9,16 +9,19 @@ export default function CreateICS({user}) {
 function getCollection() {
 const ics = require('ics')
 const plantCollection = [];
+var today = new Date();
+
     user.allPlants.map((plant) =>
     plantCollection.push(
     {
-    start: [2023, 1, 1, 12, 0],
+    start: [today.getFullYear(), today.getMonth()+1, today.getDate(), 12, 0],
+    duration: {minutes: 30},
     title: plant.name,
+    recurrenceRule: plant.wateringSchedule,
     }
     ))
 
 const { error, value } = ics.createEvents(plantCollection)
-
 
 if (error) {
   console.log(error)

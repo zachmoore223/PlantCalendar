@@ -8,9 +8,9 @@ class PlantTest {
 
     @Test
     public void testEntity() {
-        Plant test = new Plant("Test", 1, "Low", "High", true, "url");
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "url");
         assertEquals("Test", test.getName());
-        assertEquals(1, test.getWaterPerWeek());
+        assertEquals("FREQ=DAILY;INTERVAL=2", test.getWateringSchedule());
         assertEquals("Low", test.getWaterAmount());
         assertEquals("High", test.getLightLevel());
         assertEquals(true, test.isPetFriendly());
