@@ -101,4 +101,3 @@ function makeSureUserExists(users, text) {
 
   return check;
 }
-
