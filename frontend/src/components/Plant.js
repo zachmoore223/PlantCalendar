@@ -133,7 +133,7 @@ function ListPlants({plants, user, filterText}) {
                         <p>Water Amount: {plant.waterAmount}</p>
                     </div>
                 </div>
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
+                <button class= "button" onClick={() => addPlant(user, plant)}>Add Plant</button>
             </td>
             ))}
             </tr>
