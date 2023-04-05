@@ -118,7 +118,6 @@ function ListPlants({plants, user, filterText}) {
         );
 
         const results = chunk(rows, 5);
-        var count = 0;
         return(
         results
         .map((array, index) => (
