@@ -139,9 +139,3 @@ function SearchBar({filterText,filterTextChange}){
             ))}
             </tr>
         )))};
-
-
-
-
-
-
