@@ -25,6 +25,7 @@ export default function CreateUser() {
     and do not add the blank user to the API */
     if (text == "") {
       setStatus("typing");
+      setDisplayCreatedUser("Cannot create a blank user.");
     } else {
       postNewUser(text);
       setText("");
