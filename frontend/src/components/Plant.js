@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
 import CreateICS from "./CreateICS";
+import UserPlantCollection from "./UserPlantCollection";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
@@ -17,18 +18,27 @@ export default function Plant({ user }) {
 
     return (
         <div>
-
+            {/* Table that displays the user's added plants*/}
             <table>
                 <thead>
-                <tr><th>{user.username}'s cart:</th></tr>
+                    <tr>
+                        <th>{user.username}'s Plant Collection:</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr><PlantCollection user = {user}/></tr>
+                    <tr>
+                     <UserPlantCollection user = {user} />
+                </tr>
                 </tbody>
             </table>
 
+            {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
-             <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
+
+            {/* Allows the user search for any given plant*/}
+            <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
+
+            {/* Displays all available plants*/}
             <table>
                 <thead>
                 </thead>
@@ -60,16 +70,6 @@ function removePlant(user, plant) {
     );
 }
 
-function PlantCollection({ user }) {
-    return (
-        user.allPlants.map((plant) => (
-            <td key={plant.id}>
-                <p>{plant.name} &nbsp; <button onClick={() => removePlant(user, plant)}>X</button> &nbsp;| &nbsp; </p>
-            </td>
-        ))
-    );
-}
-
 function parseWateringSchedule(schedule) {
     const regex = /FREQ=(\w+);INTERVAL=(\d+)/;
     const match = schedule.match(regex);
@@ -98,7 +98,7 @@ function SearchBar({filterText,filterTextChange}){
       );
 }
 
-    function ListPlants({plants, user, filterText}) {
+function ListPlants({plants, user, filterText}) {
       const rows = [];
 
       plants.forEach((plant) => {
@@ -118,7 +118,6 @@ function SearchBar({filterText,filterTextChange}){
         );
 
         const results = chunk(rows, 5);
-        var count = 0;
         return(
         results
         .map((array, index) => (
@@ -138,4 +137,11 @@ function SearchBar({filterText,filterTextChange}){
             </td>
             ))}
             </tr>
-        )))};
+ )))};
+
+
+
+
+
+
+
