@@ -126,7 +126,7 @@ function ListPlants({plants, user, filterText}) {
             <td className="plant-container" key = {plant.id}>
                 <h4>{plant.name}</h4>
                 <div className="img-container">
-                    <img src={plant.imgURL} id="plantImages" />
+                    <img src={plant.imgURL} id={"plantImage_"+plant.id} />
                     <div className="plant-info">
                         <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
                         <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
