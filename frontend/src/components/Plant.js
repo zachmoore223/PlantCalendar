@@ -5,6 +5,8 @@ import CreateICS from "./CreateICS";
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
     const [selectedPlant, setSelectedPlant] = useState(null);
+    const [filterText, setFilterText] = useState('');
+
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
@@ -12,39 +14,6 @@ export default function Plant({ user }) {
             .then((response) => setPlants(response));
     }, [user]);
 
-    const listPlants1 = plants
-        .filter((plant) => plant.id <= 5)
-        .map((plant) => (
-            <td key={plant.id} className="plant-container">
-                <h4>{plant.name}</h4>
-                <div className="img-container">
-                    <img src={plant.imgURL} id="plantImages" />
-                    <div className="plant-info">
-                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
-                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
-                        <p>Water Amount: {plant.waterAmount}</p>
-                    </div>
-                </div>
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
-            </td>
-        ));
-
-    const listPlants2 = plants
-        .filter((plant) => plant.id > 5)
-        .map((plant) => (
-            <td key={plant.id} className="plant-container">
-                <h4>{plant.name}</h4>
-                <div className="img-container">
-                    <img src={plant.imgURL} id="plantImages" />
-                    <div className="plant-info">
-                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
-                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
-                        <p>Water Amount: {plant.waterAmount}</p>
-                    </div>
-                </div>
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
-            </td>
-        ));
 
     return (
         <div>
@@ -59,13 +28,12 @@ export default function Plant({ user }) {
             </table>
 
             <CreateICS user={user} />
-
+             <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
             <table>
                 <thead>
                 </thead>
                 <tbody>
-                <tr>{listPlants1}</tr>
-                <tr>{listPlants2}</tr>
+                <ListPlants plants = {plants} user = {user} filterText = {filterText}/>
                 </tbody>
             </table>
         </div>
@@ -118,4 +86,62 @@ function parseWateringSchedule(schedule) {
 
     return 'Unknown watering schedule';
 }
+
+function SearchBar({filterText,filterTextChange}){
+      return (
+        <form>
+          <input
+            type="text"
+            value={filterText} placeholder="Search..."
+            onChange={(e) => filterTextChange(e.target.value)} />
+        </form>
+      );
+}
+
+    function ListPlants({plants, user, filterText}) {
+      const rows = [];
+
+      plants.forEach((plant) => {
+        if (
+          plant.name.toLowerCase().indexOf(
+            filterText.toLowerCase()
+          ) === -1
+        ) {
+          return;
+        }
+        rows.push(plant);
+        });
+
+        const chunk = (arr, size) =>
+            Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+               arr.slice(i * size, i * size + size)
+        );
+
+        const results = chunk(rows, 5);
+        var count = 0;
+        return(
+        results
+        .map((array, index) => (
+            <tr key = {index+1}>
+            {array.map((plant) => (
+            <td className="plant-container" key = {plant.id}>
+                <h4>{plant.name}</h4>
+                <div className="img-container">
+                    <img src={plant.imgURL} id="plantImages" />
+                    <div className="plant-info">
+                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
+                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
+                        <p>Water Amount: {plant.waterAmount}</p>
+                    </div>
+                </div>
+                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
+            </td>
+            ))}
+            </tr>
+        )))};
+
+
+
+
+
 
