@@ -14,23 +14,6 @@ export default function Plant({ user }) {
             .then((response) => setPlants(response));
     }, [user]);
 
-    const listPlants1 = plants
-        .filter((plant) => plant.id <= 5)
-        .map((plant) => (
-            <td key={plant.id} className="plant-container">
-                <h4>{plant.name}</h4>
-                <div className="img-container">
-                    <img src={plant.imgURL} id="plantImages" />
-                    <div className="plant-info">
-                        <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
-                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
-                        <p>Water Amount: {plant.waterAmount}</p>
-                    </div>
-                </div>
-                <button onClick={() => addPlant(user, plant)}>Add Plant</button>
-            </td>
-        ));
-
 
     return (
         <div>
@@ -46,11 +29,11 @@ export default function Plant({ user }) {
 
             <CreateICS user={user} />
              <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
-            <table position= "absolute">
+            <table>
                 <thead>
                 </thead>
                 <tbody>
-                <ListPlants2 plants = {plants} user = {user} filterText = {filterText}/>
+                <ListPlants plants = {plants} user = {user} filterText = {filterText}/>
                 </tbody>
             </table>
         </div>
@@ -115,7 +98,7 @@ function SearchBar({filterText,filterTextChange}){
       );
 }
 
-    function ListPlants2({plants, user, filterText}) {
+    function ListPlants({plants, user, filterText}) {
       const rows = [];
 
       plants.forEach((plant) => {
@@ -129,19 +112,23 @@ function SearchBar({filterText,filterTextChange}){
         rows.push(plant);
         });
 
+        const chunk = (arr, size) =>
+            Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+               arr.slice(i * size, i * size + size)
+        );
+
+        const results = chunk(rows, 5);
+        var count = 0;
         return(
-        rows
-        .map((plant, index) => (
-        <>
-        {((index+1) % 5 === 0 || index == 0) && <tr key={plant.id}>}
+        results
+        .map((array, index) => (
+            <tr key = {index+1}>
+            {array.map((plant) => (
             <td className="plant-container" key = {plant.id}>
                 <h4>{plant.name}</h4>
                 <div className="img-container">
                     <img src={plant.imgURL} id="plantImages" />
                     <div className="plant-info">
-                    {
-                                'a'==='a' ? <p>Hi</p> : <p>Bye</p>
-                            }
                         <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
                         <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
                         <p>Water Amount: {plant.waterAmount}</p>
@@ -149,8 +136,8 @@ function SearchBar({filterText,filterTextChange}){
                 </div>
                 <button onClick={() => addPlant(user, plant)}>Add Plant</button>
             </td>
-          {((index + 1) % 5 === 0 || index === rows.length - 1) && </tr>}
-          </>
+            ))}
+            </tr>
         )))};
 
 
