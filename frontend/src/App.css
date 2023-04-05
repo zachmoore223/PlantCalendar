@@ -12,7 +12,7 @@ body {
   color: white;
 }
 
-#plantImages {
+ img[id^="plantImage_"] {
     width: 200px;
 }
 
