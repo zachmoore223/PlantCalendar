@@ -48,7 +48,7 @@ export default function CreateUser() {
         />
         <br />
 
-        <button disabled={isSending}>Create User</button>
+        <button class= "button" disabled={isSending}>Create User</button>
       </form>
       <p>{displayCreatedUser}</p>
     </div>
