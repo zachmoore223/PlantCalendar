@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Plant from "./Plant";
+import CreateUser from './CreateUser';
 
 
 export default function User() {
@@ -75,8 +76,11 @@ export default function User() {
         {isSending && <p>Logging in...</p>}
       </form>
       <p>{displayFail}</p>
+
+      <CreateUser />
+
     </div>
-  );
+     );
 }
 
 // Pretend to send a message.
