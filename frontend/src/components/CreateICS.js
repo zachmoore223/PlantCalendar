@@ -42,7 +42,7 @@ console.log(value);
 
   return (
     <div>
-      <button onClick={getCollection}>Download Watering Schedule</button>
+      <button class= "button" onClick={getCollection}>Download Watering Schedule</button>
     </div>
   );
 }

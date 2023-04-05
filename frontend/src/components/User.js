@@ -47,7 +47,7 @@ export default function User() {
           .filter((user) => user.username == text)
           .map((user) => (
             <div key={user.username}>
-              <h1> Welcome {user.username}</h1>
+              <h1> Hello {user.username}</h1>
               <Plant user={user} />
             </div>
           ))}
@@ -68,7 +68,7 @@ export default function User() {
 
         <br />
 
-        <button disabled={isSending} type="submit">
+        <button class= "button" disabled={isSending} type="submit">
           Login
         </button>
 
