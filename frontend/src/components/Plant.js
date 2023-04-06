@@ -134,7 +134,7 @@ function ListPlants({plants, user, filterText}) {
                         <p>Light Amount: {plant.lightLevel}</p>
                     </div>
                 </div>
-                <button class= "button" onClick={() => addPlant(user, plant)}>Add Plant</button>
+                <button className= "button" onClick={() => addPlant(user, plant)}>Add Plant</button>
             </td>
             ))}
             </tr>

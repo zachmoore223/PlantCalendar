@@ -29,7 +29,7 @@ const [plants, setPlants] = useState([]);
             <>
             {count++}
                 <text key={plant.id}>. {plant.name} &nbsp;
-                    <button class= "xButton" onClick={() => removePlant(user, plant)}>
+                    <button className= "xButton" onClick={() => removePlant(user, plant)}>
                     X
                     </button>
                     &nbsp;| &nbsp;
