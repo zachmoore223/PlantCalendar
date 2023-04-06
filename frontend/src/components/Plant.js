@@ -121,9 +121,9 @@ function ListPlants({plants, user, filterText}) {
         return(
         results
         .map((array, index) => (
-            <tr key = {index+1}>
+            <tr key = {"row_"+index+1}>
             {array.map((plant) => (
-            <td className="plant-container" key = {plant.id}>
+            <td className="plant-container" key = {"plantContainer_"+plant.id}>
                 <h4>{plant.name}</h4>
                 <div className="img-container">
                     <img src={plant.imgURL} id={"plantImage_"+plant.id} />
