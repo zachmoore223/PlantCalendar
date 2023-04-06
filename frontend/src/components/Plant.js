@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import User from "./User";
 import CreateICS from "./CreateICS";
 import UserPlantCollection from "./UserPlantCollection";
+import PlantRemovePlant from "./PlantRemovePlant";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
@@ -121,8 +122,10 @@ function ListPlants({plants, user, filterText}) {
         return(
         results
         .map((array, index) => (
+
             <tr key = {"row_"+index+1}>
             {array.map((plant) => (
+
             <td className="plant-container" key = {"plantContainer_"+plant.id}>
                 <h4>{plant.name}</h4>
                 <div className="img-container">
@@ -134,6 +137,7 @@ function ListPlants({plants, user, filterText}) {
                         <p>Light Amount: {plant.lightLevel}</p>
                     </div>
                 </div>
+
                 <button className= "button"
                 className={user.allPlants.some(p => p.id === plant.id) ? "clickedButton" : "button"}
                 onClick={
@@ -142,9 +146,14 @@ function ListPlants({plants, user, filterText}) {
                 }>
                  {user.allPlants.some(p => p.id === plant.id) ? "Plant Added" : "Add Plant"}
                  </button>
+                &nbsp;
+                 {user.allPlants.some(p => p.id === plant.id) ? <PlantRemovePlant user={user} plant={plant} /> : null}
+
             </td>
+
             ))}
             </tr>
+
  )))};
 
 
