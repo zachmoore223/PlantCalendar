@@ -3,6 +3,7 @@ import User from "./User";
 import CreateICS from "./CreateICS";
 import UserPlantCollection from "./UserPlantCollection";
 import PlantRemovePlant from "./PlantRemovePlant";
+import OverwaterInfo from "./OverwaterInfo";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
@@ -41,6 +42,9 @@ export default function Plant({ user }) {
                 <ListPlants plants = {plants} user = {user} filterText = {filterText}/>
                 </tbody>
             </table>
+
+            <OverwaterInfo userPlants={user.allPlants} />
+
         </div>
     );
 }
