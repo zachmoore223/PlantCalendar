@@ -24,19 +24,23 @@ const [plants, setPlants] = useState([]);
 
    const results = chunk(rows, 5);
     var count = 1;
+    const PLANTS_PER_LINE = 6;
 
     return (
-        user.allPlants.map((plant) => (
-        <ul className ="usersCollection" key={"ulPlant_"+plant.id}>
-                <li className ="usersCollection" key={"collectionText_"+plant.id}>{count++}. {plant.name} &nbsp;
-
-                 <UserRemovePlant user={user} plant={plant} />
-
-                    &nbsp;| &nbsp;
-                </li>
-                 {count % 7 == 0 ? <br /> : null}
-        </ul>
-        ))
+        <>
+    {user.allPlants.map((plant, index) => (
+      <React.Fragment key={plant.id}>
+        <li className="usersCollection">
+          {index + 1}. {plant.name}&nbsp;
+          <UserRemovePlant user={user} plant={plant} />
+          &nbsp;|&nbsp;
+        </li>
+        {index % PLANTS_PER_LINE === PLANTS_PER_LINE - 1 && (
+          <br key={`br-${plant.id}`} />
+        )}
+      </React.Fragment>
+    ))}
+        </>
     );
 }
 

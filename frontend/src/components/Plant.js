@@ -22,7 +22,12 @@ export default function Plant({ user }) {
         <div>
             {/* Table that displays the user's added plants*/}
             <h3><strong>Current Plant Cart:</strong></h3>
+
+            <ul className ="usersCollection" key="ulPlant">
+
             <UserPlantCollection user = {user} />
+
+            </ul>
 
             <br /><br />
 
