@@ -73,7 +73,13 @@ function parseWateringSchedule(schedule) {
         const interval = parseInt(match[2], 10);
 
         if (frequency === 'weekly') {
-            return `Water every ${interval} week${interval > 1 ? 's' : ''}`;
+            if (interval === 1) {
+                return 'Water once a week';
+            } else if (interval === 2) {
+                return 'Water twice a week';
+            } else {
+                return `Water every ${interval} weeks`;
+            }
         }
         // Add more cases for different frequencies (e.g., 'daily', 'monthly') if needed.
     }
