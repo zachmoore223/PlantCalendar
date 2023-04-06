@@ -73,6 +73,13 @@ body {
     vertical-align: 20%;
 
 }
+.usersCollection{
+    display: inline-block;
+    margin:0;
+    margin-left: 0;
+    padding-left: 0;
+}
+
 
 
 
