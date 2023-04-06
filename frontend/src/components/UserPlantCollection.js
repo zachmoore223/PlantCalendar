@@ -24,23 +24,17 @@ const [plants, setPlants] = useState([]);
    const results = chunk(rows, 5);
 
 
-   return(
-            results
-            .map((array, index) => (
-                <tr key = {index+1}>
-                    {array.map((plant) => (
-                        <td className="plant-container" key = {plant.id}>
-                            <p>
-                                {plant.name} &nbsp;
-                                <button class= "xButton" onClick={() => removePlant(user, plant)}>
-                                X
-                                </button>
-                                &nbsp;| &nbsp;
-                            </p>
-                        </td>
-                ))}
-                </tr>
-)))};
+    return (
+        user.allPlants.map((plant) => (
+                <text key={plant.id}>{plant.name} &nbsp;
+                    <button class= "xButton" onClick={() => removePlant(user, plant)}>
+                    X
+                    </button>
+                    &nbsp;| &nbsp;
+                </text>
+        ))
+    );
+}
 
 
 function removePlant(user, plant) {

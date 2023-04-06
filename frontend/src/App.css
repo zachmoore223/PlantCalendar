@@ -70,10 +70,8 @@ body {
 .xButton{
     background-color: rgb(148, 175, 159);
     color: white;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    font-size: 8px;
+    vertical-align: 20%;
+
 }
 
 
