@@ -68,7 +68,7 @@ export default function User() {
 
         <br />
 
-        <button class= "button" disabled={isSending} type="submit">
+        <button className= "button" disabled={isSending} type="submit">
           Login
         </button>
 
