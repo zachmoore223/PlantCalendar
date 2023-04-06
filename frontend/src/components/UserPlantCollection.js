@@ -22,16 +22,20 @@ const [plants, setPlants] = useState([]);
    );
 
    const results = chunk(rows, 5);
-
+    var count = 1;
 
     return (
         user.allPlants.map((plant) => (
-                <text key={plant.id}>{plant.name} &nbsp;
+            <>
+            {count++}
+                <text key={plant.id}>. {plant.name} &nbsp;
                     <button class= "xButton" onClick={() => removePlant(user, plant)}>
                     X
                     </button>
                     &nbsp;| &nbsp;
                 </text>
+                 {count % 7 == 0 ? <br /> : null}
+             </>
         ))
     );
 }
