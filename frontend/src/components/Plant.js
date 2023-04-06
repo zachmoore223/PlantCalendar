@@ -19,21 +19,15 @@ export default function Plant({ user }) {
     return (
         <div>
             {/* Table that displays the user's added plants*/}
-            <table>
-                <thead>
-                    <tr>
-                        <th>{user.username}'s Plant Collection:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                     <UserPlantCollection user = {user} />
-                </tr>
-                </tbody>
-            </table>
+            <h3><strong>Current Plant Cart:</strong></h3>
+            <UserPlantCollection user = {user} />
+
+            <br /><br />
 
             {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
+
+            <br />
 
             {/* Allows the user search for any given plant*/}
             <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>

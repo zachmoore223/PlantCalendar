@@ -10,11 +10,32 @@ const [plants, setPlants] = useState([]);
             .then((response) => setPlants(response));
     }, [user]);
 
+   const rows = [];
+
+   user.allPlants.forEach((plant) => {
+            rows.push(plant);
+  });
+
+   const chunk = (arr, size) =>
+   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+                   arr.slice(i * size, i * size + size)
+   );
+
+   const results = chunk(rows, 5);
+    var count = 1;
+
     return (
         user.allPlants.map((plant) => (
-            <td key={plant.id}>
-                <p>{plant.name} &nbsp; <button class= "button" onClick={() => removePlant(user, plant)}>X</button> &nbsp;| &nbsp; </p>
-            </td>
+            <>
+            {count++}
+                <text key={plant.id}>. {plant.name} &nbsp;
+                    <button class= "xButton" onClick={() => removePlant(user, plant)}>
+                    X
+                    </button>
+                    &nbsp;| &nbsp;
+                </text>
+                 {count % 7 == 0 ? <br /> : null}
+             </>
         ))
     );
 }
