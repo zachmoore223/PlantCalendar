@@ -123,8 +123,9 @@ function ListPlants({plants, user, filterText}) {
                     <img src={plant.imgURL} id={"plantImage_"+plant.id} />
                     <div className="plant-info">
                         <p>Watering Schedule: {parseWateringSchedule(plant.wateringSchedule)}</p>
-                        <p>Is this pet safe: {plant.petFriendly ? 'Yes' : 'No'}</p>
+                        <p>Pet Friendly? {plant.petFriendly ? 'Yes' : 'No'}</p>
                         <p>Water Amount: {plant.waterAmount}</p>
+                        <p>Light Amount: {plant.lightLevel}</p>
                     </div>
                 </div>
                 <button class= "button" onClick={() => addPlant(user, plant)}>Add Plant</button>
