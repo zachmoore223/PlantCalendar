@@ -100,7 +100,7 @@ function SearchBar({filterText,filterTextChange}){
 
 function ListPlants({plants, user, filterText}) {
       const rows = [];
-
+        const [buttonText, setButtonText] = useState('');
       plants.forEach((plant) => {
         if (
           plant.name.toLowerCase().indexOf(
@@ -134,7 +134,12 @@ function ListPlants({plants, user, filterText}) {
                         <p>Light Amount: {plant.lightLevel}</p>
                     </div>
                 </div>
-                <button className= "button" onClick={() => addPlant(user, plant)}>Add Plant</button>
+                <button className= "button" onClick={
+                () => {addPlant(user, plant);
+                        setButtonText("Plant Added");}
+                }>
+                 {user.allPlants.some(p => p.id === plant.id) ? "Plant Added" : "Add Plant"}
+                 </button>
             </td>
             ))}
             </tr>
