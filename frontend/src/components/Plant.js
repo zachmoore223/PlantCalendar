@@ -19,10 +19,10 @@ export default function Plant({ user }) {
     return (
         <div>
             {/* Table that displays the user's added plants*/}
-            <table>
+            <table id="plant-container">
                 <thead>
                     <tr>
-                        <th>{user.username}'s Plant Collection:</th>
+                        <th>Your Plant Cart:</th>
                     </tr>
                 </thead>
                 <tbody>
