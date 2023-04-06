@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
 import CreateICS from "./CreateICS";
-
+import RemovePlant from "./RemovePlant";
 
 export default function UserPlantCollection({ user }) {
 const [plants, setPlants] = useState([]);
@@ -29,9 +29,9 @@ const [plants, setPlants] = useState([]);
         user.allPlants.map((plant) => (
         <ul className ="usersCollection" key={"ulPlant_"+plant.id}>
                 <li className ="usersCollection" key={"collectionText_"+plant.id}>{count++}. {plant.name} &nbsp;
-                    <button  key={"usersButton_"+plant.id} className= "xButton" onClick={() => removePlant(user, plant)}>
-                    X
-                    </button>
+
+                 <RemovePlant user={user} plant={plant} />
+
                     &nbsp;| &nbsp;
                 </li>
                  {count % 7 == 0 ? <br /> : null}
