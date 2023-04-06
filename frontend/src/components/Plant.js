@@ -134,7 +134,9 @@ function ListPlants({plants, user, filterText}) {
                         <p>Light Amount: {plant.lightLevel}</p>
                     </div>
                 </div>
-                <button className= "button" onClick={
+                <button className= "button"
+                className={user.allPlants.some(p => p.id === plant.id) ? "clickedButton" : "button"}
+                onClick={
                 () => {addPlant(user, plant);
                         setButtonText("Plant Added");}
                 }>

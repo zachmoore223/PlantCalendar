@@ -67,6 +67,11 @@ body {
     color: white;
 }
 
+.clickedButton{
+    background-color: rgb(38, 77, 0);
+    color: white;
+}
+
 .xButton{
     background-color: rgb(148, 175, 159);
     color: white;
