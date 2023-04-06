@@ -91,7 +91,10 @@ body {
     padding-left: 0;
 }
 
-
+.overwater-info div {
+    max-width: 1200px;
+    word-wrap: break-word;
+}
 
 
 
