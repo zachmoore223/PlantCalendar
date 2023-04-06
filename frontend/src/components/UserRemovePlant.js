@@ -3,7 +3,7 @@ import User from "./User";
 import CreateICS from "./CreateICS";
 
 
-export default function UserPlantCollection({ user , plant}) {
+export default function RemovePlant({ user , plant}) {
 const [plants, setPlants] = useState([]);
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
