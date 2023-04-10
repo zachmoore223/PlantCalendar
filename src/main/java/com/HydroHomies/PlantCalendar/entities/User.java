@@ -12,6 +12,8 @@ public class User {
     @Id
     private String username;
 
+    private String password;
+
     @ManyToMany()
     @JoinTable()
     private Map<Long, Plant> userPlants = new HashMap<>();
@@ -19,8 +21,9 @@ public class User {
     public User () {
     }
 
-    public User (String username) {
+    public User (String username, String password) {
         this.username = username;
+        this.password = password;
     }
 
     public Collection<Plant> getAllPlants() {
@@ -37,6 +40,10 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public Plant getPlant (Long id) {
