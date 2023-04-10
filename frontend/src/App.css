@@ -96,16 +96,18 @@ body {
 }
 
 .login-page {
-  font-color: #0c5c2f;
   background-image: url("wallpaper.jpg");
   background-position: bottom;
   background-attachment: fixed;
-  background-size: 1500px;
+  background-size: 1920px;
   background-repeat: no-repeat;
+  color: rgb(148, 175, 159);
+  font-weight: bold;
 }
 
 .logged-in {
-  background-image: linear-gradient(to left, #BBD6B8, #DBE4C6);
+  background-color: rgb(246, 253, 222);
+  color: rgb(148, 175, 159);
 }
 
 .profile {
