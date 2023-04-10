@@ -9,6 +9,7 @@ export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [filterText, setFilterText] = useState('');
+    const [isPetFriendly, setIsPetFriendly] = useState(false);
 
 
     useEffect(() => {
@@ -39,12 +40,23 @@ export default function Plant({ user }) {
             {/* Allows the user search for any given plant*/}
             <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
 
+            {/* Allows the user to filter pet friendly plants*/}
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={isPetFriendly}
+                      onChange={(e) => setIsPetFriendly(e.target.checked)} />
+                    {' '}
+                    Only show pet friendly plants
+                  </label>
+
             {/* Displays all available plants*/}
             <table>
                 <thead>
                 </thead>
                 <tbody>
-                <ListPlants plants = {plants} user = {user} filterText = {filterText}/>
+                <ListPlants plants = {plants} user = {user} filterText = {filterText}
+                isPetFriendly = {isPetFriendly} />
                 </tbody>
             </table>
 
@@ -108,7 +120,7 @@ function SearchBar({filterText,filterTextChange}){
       );
 }
 
-function ListPlants({plants, user, filterText}) {
+function ListPlants({plants, user, filterText, isPetFriendly}) {
       const rows = [];
         const [buttonText, setButtonText] = useState('');
       plants.forEach((plant) => {
@@ -117,6 +129,9 @@ function ListPlants({plants, user, filterText}) {
             filterText.toLowerCase()
           ) === -1
         ) {
+          return;
+        }
+        if (isPetFriendly && !plant.petFriendly) {
           return;
         }
         rows.push(plant);
