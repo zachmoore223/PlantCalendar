@@ -10,12 +10,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <img src={hydrohomieLogo} width="750px"/>
-      <br />
-      <AboutUs /> <Citations />
-      <User />
+        <img src={hydrohomieLogo} width="750px"/>
+            <br />
+        <AboutUs /> <Citations />
       </header>
-
+        <User />
     </div>
   );
 }

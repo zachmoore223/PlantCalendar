@@ -174,3 +174,8 @@ figcaption {
     border-radius: 55%;
     background-color: #faffe8;
 }
+
+.currentPlantCart{
+    font-size: 25px;
+    padding: 0px;
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Plant from "./Plant";
 import CreateUser from './CreateUser';
 
@@ -31,7 +31,7 @@ export default function User() {
       }
     }, [loggedIn]);
 
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     setStatus("sending");
     sendMessage(text);
@@ -46,26 +46,33 @@ export default function User() {
       setStatus("sent");
       setLoggedIn(true);
     }
-  }
+ }
 
   const isSending = status === "sending";
   const isSent = status === "sent";
 
+    const handleLogout = useCallback(() => {
+    setText("");
+    setStatus('typing');
+    setLoggedIn(false);
 
-  if (isSent) {
+  }, []);
+
+if (isSent) {
     return (
       <div className={loggedIn ? 'logged-in' : 'login-page'}>
         {users
           .filter((user) => user.username == text)
           .map((user) => (
             <div key={user.username}>
-              <h1> Hello {user.username}</h1>
+              <h2> Hello {user.username}</h2>
+                <button className= "button" onClick={handleLogout}> logout </button>
               <Plant user={user} />
             </div>
           ))}
       </div>
     );
-  }
+}
 
 
   return (
