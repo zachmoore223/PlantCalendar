@@ -99,7 +99,7 @@ body {
   background-image: url("wallpaper.jpg");
   background-position: bottom;
   background-attachment: fixed;
-  background-size: 1920px;
+  background-size: cover;
   background-repeat: no-repeat;
   color: rgb(148, 175, 159);
   font-weight: bold;
@@ -109,7 +109,7 @@ body {
   background-image: url("wallpaper2.jpg");
   background-position: bottom;
   background-attachment: fixed;
-  background-size: 2300px;
+  background-size: cover;
   background-repeat: no-repeat;
   color: rgb(148, 175, 159);
   font-weight: bold;
