@@ -8,6 +8,7 @@ export default function User() {
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
   const [displayFail, setDisplayFail] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const periodicallyFetch = setInterval(
@@ -19,6 +20,16 @@ export default function User() {
     );
     return () => clearInterval(periodicallyFetch);
   }, []);
+
+  useEffect(() => {
+      if (loggedIn) {
+        document.body.classList.remove('login-page');
+        document.body.classList.add('logged-in');
+      } else {
+        document.body.classList.remove('logged-in');
+        document.body.classList.add('login-page');
+      }
+    }, [loggedIn]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +44,7 @@ export default function User() {
       setDisplayFail("User does not exist.")
     } else {
       setStatus("sent");
+      setLoggedIn(true);
     }
   }
 
@@ -42,7 +54,7 @@ export default function User() {
 
   if (isSent) {
     return (
-      <div>
+      <div className={loggedIn ? 'logged-in' : 'login-page'}>
         {users
           .filter((user) => user.username == text)
           .map((user) => (

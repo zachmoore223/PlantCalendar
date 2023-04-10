@@ -3,7 +3,6 @@
 }
 
 body {
-  background-image: linear-gradient(to left, #BBD6B8, #DBE4C6);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,6 +93,19 @@ body {
 .overwater-info div {
     max-width: 1200px;
     word-wrap: break-word;
+}
+
+.login-page {
+  font-color: #0c5c2f;
+  background-image: url("wallpaper.jpg");
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: 1500px;
+  background-repeat: no-repeat;
+}
+
+.logged-in {
+  background-image: linear-gradient(to left, #BBD6B8, #DBE4C6);
 }
 
 
