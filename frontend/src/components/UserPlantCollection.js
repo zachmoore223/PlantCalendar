@@ -22,10 +22,17 @@ const [plants, setPlants] = useState([]);
                    arr.slice(i * size, i * size + size)
    );
 
+
+
    const results = chunk(rows, 5);
     var count = 1;
     const PLANTS_PER_LINE = 6;
 
+    if(user.allPlants.length === 0){
+      return(
+        <p> your cart is currently empty </p>
+        );
+    }else{
     return (
         <>
     {user.allPlants.map((plant, index) => (
@@ -42,6 +49,7 @@ const [plants, setPlants] = useState([]);
     ))}
         </>
     );
+    }
 }
 
 
