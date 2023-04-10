@@ -106,8 +106,13 @@ body {
 }
 
 .logged-in {
-  background-color: rgb(246, 253, 222);
+  background-image: url("wallpaper2.jpg");
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: 2300px;
+  background-repeat: no-repeat;
   color: rgb(148, 175, 159);
+  font-weight: bold;
 }
 
 .profile {
