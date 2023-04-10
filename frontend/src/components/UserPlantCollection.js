@@ -30,7 +30,7 @@ const [plants, setPlants] = useState([]);
 
     if(user.allPlants.length === 0){
       return(
-        <p> your cart is currently empty </p>
+        <p> Your cart is currently empty. </p>
         );
     }else{
     return (
