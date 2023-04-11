@@ -88,7 +88,8 @@ if (isSent) {
         <label className="labelName">
              Username: &nbsp;
                 <input value={username} disabled={isSending}
-                onChange={(e) => setUsername(e.target.value)} />
+                onChange={(e) => {setUsername(e.target.value);
+                setDisplayFail("");}} />
         </label>
         <br />
 
