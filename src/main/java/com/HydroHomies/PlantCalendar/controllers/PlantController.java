@@ -37,4 +37,14 @@ public class PlantController {
         // Call the save() method of the plantRepository to add the new plant to the database and return it.
         return plantRepository.save(plant);
     }
+
+    @PutMapping("/addRR/{newRR}")
+    public void addRR(@PathVariable String newRR){
+        plantRepository.findAll().forEach(plant -> {plant.changeWateringSchedule(newRR);
+        plantRepository.save(plant);});
+    }
 }
+
+//        Iterable<Plant> allPlants = plantRepository.findAll();
+//        allPlants.forEach(plant -> {plant.changeWateringSchedule(newRR);});
+//        plantRepository.saveAll(allPlants);

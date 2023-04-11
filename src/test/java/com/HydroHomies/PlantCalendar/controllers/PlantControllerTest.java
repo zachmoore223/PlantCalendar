@@ -35,7 +35,7 @@ class PlantControllerTest {
 
     @Test
     public void postPlant() throws Exception {
-        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2;BYDAY=SU", "Low", "High", true, "testURL");
         test.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/plants")
                         .accept(MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ class PlantControllerTest {
 
     @Test
     public void getPlant() throws Exception {
-        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2;BYDAY=SU", "Low", "High", true, "testURL");
         test.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/plants")
                         .accept(MediaType.APPLICATION_JSON)
@@ -63,6 +63,25 @@ class PlantControllerTest {
                         .content(getJsonContent(test)))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(getJsonContent(test)))
+                .andDo(MockMvcResultHandlers.print());
+    }
+
+    @Test
+    public void putPlant() throws Exception {
+        Plant test = new Plant("Test", "FREQ=DAILY;INTERVAL=2;BYDAY=SU", "Low", "High", true, "testURL");
+        test.setId(1);
+        mvc.perform(MockMvcRequestBuilders.post("/api/plants")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(test)))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(test)))
+                .andDo(MockMvcResultHandlers.print());
+        mvc.perform(MockMvcRequestBuilders.put("/api/addRR/MO")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(test)))
+                .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 

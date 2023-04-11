@@ -11,7 +11,6 @@ public class Plant {
     @GeneratedValue
     @Column
     private long id;
-
     @Column
     private String name;
     @Column
@@ -37,6 +36,13 @@ public class Plant {
     // This method sets the ID of the plant.
     public void setId(final long id) {
         this.id = id;
+    }
+
+    // this method sets the watering schedule for the plant.
+    public void changeWateringSchedule(String newRR) {
+        String newSchedule = this.wateringSchedule.substring(0,this.wateringSchedule.length()-2);
+        newSchedule = newSchedule + newRR;
+        this.wateringSchedule = newSchedule;
     }
 
     // This method gets the ID of the plant.
@@ -73,5 +79,6 @@ public class Plant {
     public String getImgURL() {
         return imgURL;
     }
+
 
 }
