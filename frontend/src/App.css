@@ -59,6 +59,7 @@ body {
   justify-content: center;
   align-items: center;
   transition: opacity 0.5s;
+  font-size: 15px;
 }
 
 .button{
