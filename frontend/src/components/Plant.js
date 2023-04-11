@@ -96,7 +96,7 @@ function parseWateringSchedule(schedule) {
             if (interval === 1) {
                 return 'Water once a week';
             } else if (interval === 2) {
-                return 'Water twice a week';
+                return 'Water once every two week';
             } else {
                 return `Water every ${interval} weeks`;
             }
