@@ -1,5 +1,6 @@
 import React from 'react';
 
+// This is an object containing information about how to deal with overwatering for each plant.
 const overwaterInfo = {
 
     Succulent: "Succulents are known for their ability to store water in their leaves, and they are susceptible to root rot if overwatered. " +
@@ -47,10 +48,12 @@ const overwaterInfo = {
 };
 
 function OverwaterInfo({ userPlants }) {
+    // If the userPlants is empty or not provided, return null
     if (!userPlants || userPlants.length === 0) {
         return null;
     }
 
+    // Otherwise, render the OverwaterInfo component
     return (
         <div className="overwater-info">
             <h3>Overwatering Information</h3>
