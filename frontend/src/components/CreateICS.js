@@ -48,7 +48,7 @@ export default function CreateICS({ user }) {
 
     return (
         <div>
-            <button className="button" onClick={getCollection}>Download Watering Schedule</button>
+            <button className="icsButton" onClick={getCollection}>Download Watering Schedule</button>
         </div>
     );
 }

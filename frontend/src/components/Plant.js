@@ -25,31 +25,29 @@ export default function Plant({ user }) {
             <h2 className="currentPlantCart">Current Plant Cart:</h2>
 
             <ul className ="usersCollection" key="ulPlant">
-
             <UserPlantCollection user = {user} />
-
             </ul>
-
-            <br /><br />
 
             {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
-
             <br />
 
+            <div id="filter-section">
+
             {/* Allows the user search for any given plant*/}
-            <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
+                <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
 
             {/* Allows the user to filter pet friendly plants*/}
-                  <label>
+                <label>
                     <input
-                      type="checkbox"
-                      checked={isPetFriendly}
-                      onChange={(e) => setIsPetFriendly(e.target.checked)} />
-                    {' '}
-                    Only show pet friendly plants
-                  </label>
+                        type="checkbox"
+                        checked={isPetFriendly}
+                        onChange={(e) => setIsPetFriendly(e.target.checked)} />
+                        {' '}
+                        Pet Friend Only
+                </label>
 
+            </div>
             {/* Displays all available plants*/}
             <table>
                 <thead>

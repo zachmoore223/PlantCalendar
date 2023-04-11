@@ -71,9 +71,14 @@ if (isSent) {
           .filter((user) => user.username == username)
           .map((user) => (
             <div key={user.username}>
-              <h2> Hello {user.username}</h2>
-                <button className= "button" onClick={handleLogout}> logout </button>
+              <p className="displayLogin">
+              Logged in as {user.username}
+
+              <button className= "logoutButton" onClick={handleLogout}> logout </button>
+              </p>
+
               <Plant user={user} />
+              <br />
             </div>
           ))}
       </div>
