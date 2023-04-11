@@ -192,7 +192,7 @@ figcaption {
 }
 
 .currentPlantCart{
-    font-size: 25px;
+    font-size: 23px;
     padding: 0px;
 }
 
@@ -265,4 +265,12 @@ figcaption {
 .dayButton.active {
         background-color: rgb(148, 175, 159);
         color: white;
-      }
+}
+
+.emptyCart {
+    font-size: 15px;
+}
+
+.selectWateringDay {
+    font-size: 20px;
+}
