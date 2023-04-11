@@ -16,7 +16,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                 <button className="linksButton" onClick={() => setViewAboutUs(false)}> Hide </button>
                 <div id="profilePage">
 
-                    {/* Display information for creator #1 */}
+                    {/* Display information for Adunia */}
                     <figure>
                         <img src={profile_adunia} className="profile" />
                         <figcaption>
@@ -29,7 +29,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                         </a>
                     </figure>
 
-                    {/* Display information for creator #2 */}
+                    {/* Display information for Gabriel */}
                     <figure>
                         <img src={profile_gabriel} className="profile" />
                         <figcaption>
@@ -42,7 +42,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                         </a>
                     </figure>
 
-                    {/* Display information for creator #3 */}
+                    {/* Display information for Josef */}
                     <figure>
                         <img src={profile_josef} className="profile" />
                         <figcaption>
@@ -55,7 +55,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                         </a>
                     </figure>
 
-                    {/* Display information for creator #4 */}
+                    {/* Display information for Thomas */}
                     <figure>
                         <img src={profile_thomas} className="profile" />
                         <figcaption>
@@ -68,7 +68,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                         </a>
                     </figure>
 
-                    {/* Display information for creator #5 */}
+                    {/* Display information for Zach */}
                     <figure>
                         <img src={profile_zach} className="profile" />
                         <figcaption>
