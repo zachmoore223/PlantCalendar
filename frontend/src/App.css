@@ -263,6 +263,6 @@ figcaption {
       }
 
 .dayButton.active {
-        background-color: #4CAF50;
+        background-color: rgb(148, 175, 159);
         color: white;
       }

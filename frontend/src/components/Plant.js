@@ -10,15 +10,13 @@ export default function Plant({ user }) {
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [filterText, setFilterText] = useState('');
     const [isPetFriendly, setIsPetFriendly] = useState(false);
-
+    const [activeDay, setActiveDay] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
             .then((res) => res.json())
             .then((response) => setPlants(response));
     }, [user]);
-
-
 
     return (
         <div>
@@ -30,13 +28,13 @@ export default function Plant({ user }) {
             </ul>
             <div id="selectDayButtons">
                 <p> Select Your Watering Day:</p>
-                <button className="dayButton" id="sun" onClick={() => changeDate("SU")}>Sun</button>
-                <button className="dayButton" id="mon" onClick={() => changeDate("MO")}>Mon</button>
-                <button className="dayButton" id="tue" onClick={() => changeDate("TU")}>Tue</button>
-                <button className="dayButton" id="wed" onClick={() => changeDate("WE")}>Wed</button>
-                <button className="dayButton" id="thu" onClick={() => changeDate("TH")}>Thu</button>
-                <button className="dayButton" id="fri" onClick={() => changeDate("FR")}>Fri</button>
-                <button className="dayButton" id="sat" onClick={() => changeDate("SA")}>Sat</button>
+                <button className={`dayButton ${activeDay === 'sun' ? 'active' : ''}`} id="sun" onClick={() => {changeDate("SU");setActiveDay('sun')}}>Sun</button>
+                <button className={`dayButton ${activeDay === 'mon' ? 'active' : ''}`} id="mon" onClick={() => {changeDate("MO");setActiveDay('mon')}}>Mon</button>
+                <button className={`dayButton ${activeDay === 'tue' ? 'active' : ''}`} id="tue" onClick={() => {changeDate("TU");setActiveDay('tue')}}>Tue</button>
+                <button className={`dayButton ${activeDay === 'wed' ? 'active' : ''}`} id="wed" onClick={() => {changeDate("WE");setActiveDay('wed')}}>Wed</button>
+                <button className={`dayButton ${activeDay === 'thu' ? 'active' : ''}`} id="thu" onClick={() => {changeDate("TH");setActiveDay('thu')}}>Thu</button>
+                <button className={`dayButton ${activeDay === 'fri' ? 'active' : ''}`} id="fri" onClick={() => {changeDate("FR");setActiveDay('fri')}}>Fri</button>
+                <button className={`dayButton ${activeDay === 'sat' ? 'active' : ''}`} id="sat" onClick={() => {changeDate("SA");setActiveDay('sat')}}>Sat</button>
             </div>
             {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
@@ -124,7 +122,6 @@ function parseWateringSchedule(schedule) {
 
     return 'Unknown watering schedule';
 }
-
 function SearchBar({filterText,filterTextChange}){
       return (
         <form>
