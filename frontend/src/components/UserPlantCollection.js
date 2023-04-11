@@ -47,7 +47,9 @@ const [plants, setPlants] = useState([]);
         )}
       </React.Fragment>
     ))}
-        </>
+    <br /><br />
+    </>
+
     );
     }
 }
