@@ -27,7 +27,7 @@ export default function Plant({ user }) {
             <UserPlantCollection user = {user} />
             </ul>
             <div id="selectDayButtons">
-                <p> Select Your Watering Day:</p>
+                <p className="selectWateringDay"> Select Your Watering Day:</p>
                 <button className={`dayButton ${activeDay === 'sun' ? 'active' : ''}`} id="sun" onClick={() => {changeDate("SU");setActiveDay('sun')}}>Sun</button>
                 <button className={`dayButton ${activeDay === 'mon' ? 'active' : ''}`} id="mon" onClick={() => {changeDate("MO");setActiveDay('mon')}}>Mon</button>
                 <button className={`dayButton ${activeDay === 'tue' ? 'active' : ''}`} id="tue" onClick={() => {changeDate("TU");setActiveDay('tue')}}>Tue</button>
