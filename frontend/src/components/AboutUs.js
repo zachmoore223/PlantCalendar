@@ -80,17 +80,6 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                         </a>
                     </figure>
 
-                    <figure>
-                        <img src={profile_zach} className="profile" />
-                        <figcaption>
-                            Bodily Injury Claims Adjuster transitioning into a Software Development role. Graduated from an intensive coding bootcamp with a Certificate of Software Development.
-                            Built front-end and back-end web applications using Java, JavaScript, HTML, CSS, React, Spring Boot and other frameworks.
-                        </figcaption>
-                        <a href="https://www.linkedin.com/in/zachmoore223/">
-                            <img src={linkedIn} className="linkedIn" />
-                        </a>
-                    </figure>
-
                 </div>
             </div>
 
