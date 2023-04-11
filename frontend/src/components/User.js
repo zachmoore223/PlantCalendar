@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import Plant from "./Plant";
-import CreateUser from './CreateUser';
-
+import Register from './Register';
 
 export default function User() {
-  const [text, setText] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [status, setStatus] = useState("typing");
   const [users, setUsers] = useState([]);
   const [displayFail, setDisplayFail] = useState("");
@@ -34,15 +34,20 @@ export default function User() {
 function handleSubmit(e) {
     e.preventDefault();
     setStatus("sending");
-    sendMessage(text);
+    sendMessage(username);
 
-    //if text is empty when user submits reset status to typing
-    let userExists = makeSureUserExists(users, text);
+    //if username is empty when user submits reset status to typing
+    let userExists = makeSureUserExists(users, username);
+    let checkPassword = passwordChecker(users, username, password);
 
-    if (text == "" || userExists == false) {
+    if (username == "" || userExists == false) {
       setStatus("typing");
       setDisplayFail("User does not exist.")
-    } else {
+    } else if (checkPassword == false) {
+        setStatus("typing");
+        setDisplayFail("Password incorrect.");
+      }
+     else {
       setStatus("sent");
       setLoggedIn(true);
     }
@@ -51,18 +56,19 @@ function handleSubmit(e) {
   const isSending = status === "sending";
   const isSent = status === "sent";
 
-    const handleLogout = useCallback(() => {
-    setText("");
+const handleLogout = useCallback(() => {
+    setUsername("");
+    setPassword("");
     setStatus('typing');
     setLoggedIn(false);
 
-  }, []);
+}, []);
 
 if (isSent) {
     return (
       <div className={loggedIn ? 'logged-in' : 'login-page'}>
         {users
-          .filter((user) => user.username == text)
+          .filter((user) => user.username == username)
           .map((user) => (
             <div key={user.username}>
               <h2> Hello {user.username}</h2>
@@ -79,43 +85,65 @@ if (isSent) {
     <div>
       <form onSubmit={handleSubmit}>
         <h3>Login Here:</h3>
-        <input
-          disabled={isSending}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-
+        <label className="labelName">
+             Username: &nbsp;
+                <input value={username} disabled={isSending}
+                onChange={(e) => setUsername(e.target.value)} />
+        </label>
         <br />
 
-        <button className= "button" disabled={isSending} type="submit">
-          Login
+        <label className="labelName">
+           Password: &nbsp;
+           <input value={password} disabled={isSending} type="password"
+           onChange={(e) => setPassword(e.target.value)} />
+        </label>
+        <br />
+
+        <button className= "loginButton" disabled={isSending} type="submit">
+            Login
         </button>
+
         {isSending && <p>Logging in...</p>}
       </form>
+      <Register />
       <p>{displayFail}</p>
 
-      <CreateUser />
+
 
     </div>
      );
 }
 
 // Pretend to send a message.
-function sendMessage(text) {
+function sendMessage(username) {
   return new Promise((resolve) => {
     setTimeout(resolve, 2000);
   });
 }
 
-function makeSureUserExists(users, text) {
+function makeSureUserExists (users, username) {
   console.log(users);
   let check = false;
-
   for (let i = 0; i < users.length; i++) {
-    if (users[i].username == text) {
+    if (users[i].username == username) {
       check = true;
     }
   }
 
   return check;
 }
+
+function passwordChecker (users, username, password) {
+  console.log(users);
+  let check = false;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username == username) {
+      if (users[i].password == password){
+        check = true;
+      }
+    }
+  }
+
+  return check;
+}
+

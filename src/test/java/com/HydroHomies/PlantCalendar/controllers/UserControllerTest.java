@@ -34,7 +34,7 @@ class UserControllerTest {
 
     @Test
     public void postUser() throws Exception {
-        User test = new User ("Tester");
+        User test = new User ("Tester", "test");
         mvc.perform(MockMvcRequestBuilders.post("/api/users")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -46,7 +46,7 @@ class UserControllerTest {
 
     @Test
     public void getUser() throws Exception {
-        User test = new User ("Tester");
+        User test = new User ("Tester", "test");
         mvc.perform(MockMvcRequestBuilders.post("/api/users")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -66,7 +66,7 @@ class UserControllerTest {
     @Test
     public void addPlant() throws Exception {
         //create a new user and plant
-        User testUser = new User ("Tester");
+        User testUser = new User ("Tester", "test");
         Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
@@ -113,7 +113,7 @@ class UserControllerTest {
     @Test
     public void deletePlant() throws Exception {
         //create a new user and plant
-        User testUser = new User ("Tester");
+        User testUser = new User ("Tester", "test");
         Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
@@ -166,8 +166,8 @@ class UserControllerTest {
     @Test
     public void addTwoUsers() throws Exception {
         //create a new user and plant
-        User testUser = new User ("Tester");
-        User testUser2 = new User ("Tester2");
+        User testUser = new User ("Tester", "test");
+        User testUser2 = new User ("Tester2", "test");
         Plant testPlant = new Plant("Test", "FREQ=DAILY;INTERVAL=2", "Low", "High", true, "testURL");
         testPlant.setId(1);
 
