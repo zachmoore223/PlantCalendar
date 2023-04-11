@@ -19,6 +19,7 @@ export default function Plant({ user }) {
     }, [user]);
 
 
+
     return (
         <div>
             {/* Table that displays the user's added plants*/}
@@ -27,7 +28,16 @@ export default function Plant({ user }) {
             <ul className ="usersCollection" key="ulPlant">
             <UserPlantCollection user = {user} />
             </ul>
-
+            <div id="selectDayButtons">
+                <p> Select Your Watering Day:</p>
+                <button className="dayButton" id="sun" onClick={() => changeDate("SU")}>Sun</button>
+                <button className="dayButton" id="mon" onClick={() => changeDate("MO")}>Mon</button>
+                <button className="dayButton" id="tue" onClick={() => changeDate("TU")}>Tue</button>
+                <button className="dayButton" id="wed" onClick={() => changeDate("WE")}>Wed</button>
+                <button className="dayButton" id="thu" onClick={() => changeDate("TH")}>Thu</button>
+                <button className="dayButton" id="fri" onClick={() => changeDate("FR")}>Fri</button>
+                <button className="dayButton" id="sat" onClick={() => changeDate("SA")}>Sat</button>
+            </div>
             {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
             <br />
@@ -61,6 +71,14 @@ export default function Plant({ user }) {
             <OverwaterInfo userPlants={user.allPlants} />
 
         </div>
+    );
+}
+
+function changeDate(day) {
+    fetch(
+        "http://localhost:8080/api/addRR/"
+        + day,
+        { method: "PUT", cache: "default" }
     );
 }
 
