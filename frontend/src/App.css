@@ -170,6 +170,21 @@ figcaption {
       text-align: center;
 }
 
+.aboutHydroHomie {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 0.6em;
+      font-weight: bold;
+      background-color: #faffe8;
+      color: rgb(148, 175, 159);
+      text-align: center;
+      width: 1000px;
+      height: 150px;
+}
+
 .linkedIn {
     max-width: 10%;
     border-radius: 55%;
