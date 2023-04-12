@@ -1,7 +1,7 @@
 INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Air Plant', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'Low', 'High', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-852d1804--T-Velutina.jpg?v=1610136905');
 update plant_seq set next_val = next_val + 1;
 
-INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Fern', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'low', 'Medium', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-0ab858df--1FernAutumn4-MAIN-1.jpg?v=1608339220');
+INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Fern', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'Low', 'Medium', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-0ab858df--1FernAutumn4-MAIN-1.jpg?v=1608339220');
 update plant_seq set next_val = next_val + 1;
 
 INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Ficus', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'Medium', 'Medium', false, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/6_ficus_tineke_1-1674259437147.jpg?v=1674259444');
@@ -19,7 +19,7 @@ update plant_seq set next_val = next_val + 1;
 INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Snake Plant', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU', 'Low', 'Low', false, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-1b9ba48a--1SnakeLaurentii6-8.jpg?v=1611106175');
 update plant_seq set next_val = next_val + 1;
 
-INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Spider Plant', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'low', 'Medium', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-f142c0b4--1SpiderReverse4-MAIN.jpg?v=1611170339');
+INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Spider Plant', 'FREQ=WEEKLY;INTERVAL=1;BYDAY=SU', 'Low', 'Medium', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/pf-f142c0b4--1SpiderReverse4-MAIN.jpg?v=1611170339');
 update plant_seq set next_val = next_val + 1;
 
 INSERT INTO plantapi.plant(id, name, watering_schedule, water_Amount, light_Level, pet_Friendly, imgURL) VALUES ((select next_val from plant_seq), 'Succulent', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU', 'Low', 'High', true, 'https://cdn.shopify.com/s/files/1/2528/3612/t/11/assets/4_succ_portulacaria_elephantbush_2-1674256776699.jpg?v=1674256778');
