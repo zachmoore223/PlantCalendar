@@ -279,3 +279,7 @@ figcaption {
 .selectWateringDay {
     font-size: 20px;
 }
+
+.noPlant {
+padding: 100px 450px;
+}

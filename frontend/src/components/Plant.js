@@ -5,6 +5,7 @@ import UserPlantCollection from "./UserPlantCollection";
 import PlantRemovePlant from "./PlantRemovePlant";
 import OverwaterInfo from "./OverwaterInfo";
 import WateringDay from "./WateringDay";
+import PlantFilter from "./PlantFilter";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
@@ -13,7 +14,6 @@ export default function Plant({ user }) {
     const [isPetFriendly, setIsPetFriendly] = useState(false);
     const [filterLight, setFilterLight] = useState('None');
     const [filterWater, setFilterWater] = useState('None');
-    const [showFilter, setShowFilter] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
@@ -36,41 +36,11 @@ export default function Plant({ user }) {
             <CreateICS user={user} />
             <br />
 
-            <div id="filter-section">
+            {/*setting for user to filter through plants*/}
+            <PlantFilter filterText = {filterText} setFilterText = {setFilterText}
+            setFilterLight = {setFilterLight} setFilterWater = {setFilterWater}
+             isPetFriendly = {isPetFriendly} setIsPetFriendly = {setIsPetFriendly} />
 
-            {/* Allows the user search for any given plant*/}
-            <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
-
-            {/* Allows the user to filter by light amount*/}
-            <label>Filter by Light Amount: </label>
-            <select onChange={(e) => setFilterLight(e.target.value)}>
-              <option value='None'>None</option>
-              <option value='Low'>Low</option>
-              <option value='Medium'>Medium</option>
-              <option value='High'>High</option>
-            </select>
-
-            {/* Allows the user to filter by water amount*/}
-            <label>Filter by Water Amount: </label>
-            <select onChange={(e) => setFilterWater(e.target.value)}>
-               <option value='None'>None</option>
-               <option value='Low'>Low</option>
-               <option value='Medium'>Medium</option>
-               <option value='High'>High</option>
-            </select>
-
-            {/* Allows the user to filter pet friendly plants*/}
-            <label>
-                <input
-                   type="checkbox"
-                   checked={isPetFriendly}
-                   onChange={(e) => setIsPetFriendly(e.target.checked)} />
-                   {' '}
-                   Pet Friendly Only
-            </label>
-
-            </div>
-            
             {/* Displays all available plants*/}
             <table>
                 <thead>
@@ -154,28 +124,36 @@ function ListPlants({plants, user, filterText, isPetFriendly, filterLight, filte
         if (isPetFriendly && !plant.petFriendly) {
           return;
         }
-        if (filterLight === 'Low' && plant.lightLevel != 'Low') {
+        if (filterLight === 'Low' && plant.lightLevel !== 'Low') {
           return;
         }
-        if (filterLight === 'Medium' && plant.lightLevel != 'Medium') {
+        if (filterLight === 'Medium' && plant.lightLevel !== 'Medium') {
           return;
         }
-        if (filterLight === 'High' && plant.lightLevel != 'High') {
+        if (filterLight === 'High' && plant.lightLevel !== 'High') {
           return;
         }
-        if (filterWater === 'Low' && plant.waterAmount != 'Low') {
+        if (filterWater === 'Low' && plant.waterAmount !== 'Low') {
           return;
         }
-        if (filterWater === 'Medium' && plant.waterAmount != 'Medium') {
+        if (filterWater === 'Medium' && plant.waterAmount !== 'Medium') {
           return;
         }
-        if (filterWater === 'High' && plant.waterAmount != 'High') {
+        if (filterWater === 'High' && plant.waterAmount !== 'High') {
           return;
         }
 
 
         rows.push(plant);
         });
+
+        if(rows.length === 0){
+            return(
+            <tr>
+            <td className="noPlant"> No plants found :( </td>
+            </tr>
+            );
+        }
 
         const chunk = (arr, size) =>
             Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -219,6 +197,7 @@ function ListPlants({plants, user, filterText, isPetFriendly, filterLight, filte
             </tr>
 
  )))};
+
 
 
 
