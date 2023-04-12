@@ -4,13 +4,13 @@ import CreateICS from "./CreateICS";
 import UserPlantCollection from "./UserPlantCollection";
 import PlantRemovePlant from "./PlantRemovePlant";
 import OverwaterInfo from "./OverwaterInfo";
+import WateringDay from "./WateringDay";
 
 export default function Plant({ user }) {
     const [plants, setPlants] = useState([]);
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [filterText, setFilterText] = useState('');
     const [isPetFriendly, setIsPetFriendly] = useState(false);
-    const [activeDay, setActiveDay] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
@@ -26,16 +26,9 @@ export default function Plant({ user }) {
             <ul className ="usersCollection" key="ulPlant">
             <UserPlantCollection user = {user} />
             </ul>
-            <div id="selectDayButtons">
-                <p className="selectWateringDay"> Select Your Watering Day:</p>
-                <button className={`dayButton ${activeDay === 'sun' ? 'active' : ''}`} id="sun" onClick={() => {changeDate("SU");setActiveDay('sun')}}>Sun</button>
-                <button className={`dayButton ${activeDay === 'mon' ? 'active' : ''}`} id="mon" onClick={() => {changeDate("MO");setActiveDay('mon')}}>Mon</button>
-                <button className={`dayButton ${activeDay === 'tue' ? 'active' : ''}`} id="tue" onClick={() => {changeDate("TU");setActiveDay('tue')}}>Tue</button>
-                <button className={`dayButton ${activeDay === 'wed' ? 'active' : ''}`} id="wed" onClick={() => {changeDate("WE");setActiveDay('wed')}}>Wed</button>
-                <button className={`dayButton ${activeDay === 'thu' ? 'active' : ''}`} id="thu" onClick={() => {changeDate("TH");setActiveDay('thu')}}>Thu</button>
-                <button className={`dayButton ${activeDay === 'fri' ? 'active' : ''}`} id="fri" onClick={() => {changeDate("FR");setActiveDay('fri')}}>Fri</button>
-                <button className={`dayButton ${activeDay === 'sat' ? 'active' : ''}`} id="sat" onClick={() => {changeDate("SA");setActiveDay('sat')}}>Sat</button>
-            </div>
+
+            <WateringDay />
+
             {/* Allows the user to download their ICS watering schedule*/}
             <CreateICS user={user} />
             <br />
@@ -52,7 +45,7 @@ export default function Plant({ user }) {
                         checked={isPetFriendly}
                         onChange={(e) => setIsPetFriendly(e.target.checked)} />
                         {' '}
-                        Pet Friend Only
+                        Pet Friendly Only
                 </label>
 
             </div>
@@ -69,14 +62,6 @@ export default function Plant({ user }) {
             <OverwaterInfo userPlants={user.allPlants} />
 
         </div>
-    );
-}
-
-function changeDate(day) {
-    fetch(
-        "http://localhost:8080/api/addRR/"
-        + day,
-        { method: "PUT", cache: "default" }
     );
 }
 
