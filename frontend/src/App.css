@@ -283,3 +283,29 @@ figcaption {
 .noPlant {
 padding: 100px 450px;
 }
+
+/* 1000 Pixel Width Settings */
+@media only screen and (max-width: 1000px){
+    .logoImage{
+        flex: auto;
+        max-width: 40%;
+        }
+}
+
+/* 700 Pixel Width Settings */
+@media only screen and (max-width: 700px){
+
+.logoImage{
+    flex: auto;
+    max-width: 40%;
+    }
+}
+
+/* 350 Pixel Width Settings */
+@media only screen and (max-width: 350px){
+
+.logoImage{
+    flex: auto;
+    max-width: 40%;
+    }
+}
