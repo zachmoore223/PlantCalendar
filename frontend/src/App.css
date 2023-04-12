@@ -240,6 +240,11 @@ figcaption {
 
 .displayLogin{
    font-size: 15px;
+   margin-top: 20px;
+   margin-right: 20px;
+   position:absolute;
+   top:0;
+   right:0;
 }
 
 .logoutButton{
