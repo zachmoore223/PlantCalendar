@@ -11,6 +11,9 @@ export default function Plant({ user }) {
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [filterText, setFilterText] = useState('');
     const [isPetFriendly, setIsPetFriendly] = useState(false);
+    const [filterLight, setFilterLight] = useState('None');
+    const [filterWater, setFilterWater] = useState('None');
+    const [showFilter, setShowFilter] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
@@ -36,26 +39,45 @@ export default function Plant({ user }) {
             <div id="filter-section">
 
             {/* Allows the user search for any given plant*/}
-                <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
+            <SearchBar filterText = {filterText} filterTextChange = {setFilterText}/>
+
+            {/* Allows the user to filter by light amount*/}
+            <label>Filter by Light Amount: </label>
+            <select onChange={(e) => setFilterLight(e.target.value)}>
+              <option value='None'>None</option>
+              <option value='Low'>Low</option>
+              <option value='Medium'>Medium</option>
+              <option value='High'>High</option>
+            </select>
+
+            {/* Allows the user to filter by water amount*/}
+            <label>Filter by Water Amount: </label>
+            <select onChange={(e) => setFilterWater(e.target.value)}>
+               <option value='None'>None</option>
+               <option value='Low'>Low</option>
+               <option value='Medium'>Medium</option>
+               <option value='High'>High</option>
+            </select>
 
             {/* Allows the user to filter pet friendly plants*/}
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={isPetFriendly}
-                        onChange={(e) => setIsPetFriendly(e.target.checked)} />
-                        {' '}
-                        Pet Friendly Only
-                </label>
+            <label>
+                <input
+                   type="checkbox"
+                   checked={isPetFriendly}
+                   onChange={(e) => setIsPetFriendly(e.target.checked)} />
+                   {' '}
+                   Pet Friendly Only
+            </label>
 
             </div>
+            
             {/* Displays all available plants*/}
             <table>
                 <thead>
                 </thead>
                 <tbody>
                 <ListPlants plants = {plants} user = {user} filterText = {filterText}
-                isPetFriendly = {isPetFriendly} />
+                isPetFriendly = {isPetFriendly} filterLight = {filterLight} filterWater = {filterWater} />
                 </tbody>
             </table>
 
@@ -118,7 +140,7 @@ function SearchBar({filterText,filterTextChange}){
       );
 }
 
-function ListPlants({plants, user, filterText, isPetFriendly}) {
+function ListPlants({plants, user, filterText, isPetFriendly, filterLight, filterWater}) {
       const rows = [];
         const [buttonText, setButtonText] = useState('');
       plants.forEach((plant) => {
@@ -132,6 +154,26 @@ function ListPlants({plants, user, filterText, isPetFriendly}) {
         if (isPetFriendly && !plant.petFriendly) {
           return;
         }
+        if (filterLight === 'Low' && plant.lightLevel != 'Low') {
+          return;
+        }
+        if (filterLight === 'Medium' && plant.lightLevel != 'Medium') {
+          return;
+        }
+        if (filterLight === 'High' && plant.lightLevel != 'High') {
+          return;
+        }
+        if (filterWater === 'Low' && plant.waterAmount != 'Low') {
+          return;
+        }
+        if (filterWater === 'Medium' && plant.waterAmount != 'Medium') {
+          return;
+        }
+        if (filterWater === 'High' && plant.waterAmount != 'High') {
+          return;
+        }
+
+
         rows.push(plant);
         });
 
