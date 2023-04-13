@@ -15,6 +15,7 @@ export default function Plant({ user }) {
     const [filterLight, setFilterLight] = useState('None');
     const [filterWater, setFilterWater] = useState('None');
 
+
     useEffect(() => {
         fetch("http://localhost:8080/api/plants")
             .then((res) => res.json())

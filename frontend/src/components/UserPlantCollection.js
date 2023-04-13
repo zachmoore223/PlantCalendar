@@ -38,7 +38,7 @@ const [plants, setPlants] = useState([]);
     {user.allPlants.map((plant, index) => (
       <React.Fragment key={plant.id}>
         <li className="usersCollection">
-          {index + 1}. {plant.name}&nbsp;
+           {index + 1}. {plant.name}&nbsp;
           <UserRemovePlant user={user} plant={plant} />
           &nbsp;|&nbsp;
         </li>
