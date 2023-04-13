@@ -70,7 +70,7 @@ if (isSent) {
         {users
           .filter((user) => user.username == username)
           .map((user) => (
-            <div key={user.username}>
+            <div className="loginDiv" key={user.username}>
               <p className="displayLogin">
               Logged in as {user.username}
 
@@ -80,7 +80,7 @@ if (isSent) {
               <Plant user={user} />
               <br />
             </div>
-          ))}
+          ))} .
       </div>
     );
 }
