@@ -56,7 +56,7 @@ function OverwaterInfo({ userPlants }) {
     // Otherwise, render the OverwaterInfo component
     return (
         <div className="overwater-info">
-            <h3>Overwatering Information</h3>
+            <h3>Over-watering Information</h3>
             {userPlants.map(plant => (
                 <div key={plant.id}>
                     <h4>{plant.name}</h4>
