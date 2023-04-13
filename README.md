@@ -26,11 +26,11 @@ The Plant Calendar is a simple and easy way of creating a watering schedule for 
 ```mermaid
 sequenceDiagram
 
-participant MySQL
-participant repository
-participant SpringBoot
-participant controller
 participant react
+participant controller
+participant SpringBoot
+participant repository
+participant MySQL
 
 note over MySQL: has plant table and user table in database
 note over react: uses npm to manage packages and to run a frontend server
