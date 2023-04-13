@@ -14,11 +14,10 @@ Hydro Homie: The Plant Calendar is a simple and easy way of creating a watering 
 * Filter through plants to see which ones meet your requirements
 * Provides over-watering information about the selected plants
 * Click the download button to install your selected plants to your calendar
-* Works with all calendars that are compatible with an ics file.
+* Works with all calendars that are compatible with an ics file
 
 ## Endpoints
-- all posts need a request body
-- 
+
 ### Plant Endpoints
 - Request body example --  -d '{"name": "Test", "wateringSchedule": "FREQ=DAILY;INTERVAL=2;BYDAY=SU", 
                         "lightLevel": "Low", "waterAmount": "High", "isPetFriendly": true, "imgURL": "testURL"}'
