@@ -14,9 +14,11 @@ const [viewCitations, setViewCitations] = useState(false);
                 <p className="citations">
                     Technologies Used: Java, JavaScript, React, Spring Boot, HTML, CSS
                     <br /><br />
-                    Logo created with content license image from: <a href="https://pixabay.com/"> https://pixabay.com/ </a>
+                     <a href="https://github.com/2023-Spring-Cohort/PlantCalendar/blob/main/README.md" target="_blank"> Link to README File</a>
                     <br /><br />
-                    Background under free license from: <a href="https://www.freepik.com/"> https://www.freepik.com/ </a>
+                    Logo created with content license image from: <a href="https://pixabay.com/" target="_blank"> https://pixabay.com/ </a>
+                    <br /><br />
+                    Background under free license from: <a href="https://www.freepik.com/" target="_blank"> https://www.freepik.com/ </a>
                 </p>
             </div>
         );

@@ -12,8 +12,8 @@ export default function Plant({ user }) {
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [filterText, setFilterText] = useState('');
     const [isPetFriendly, setIsPetFriendly] = useState(false);
-    const [filterLight, setFilterLight] = useState('None');
-    const [filterWater, setFilterWater] = useState('None');
+    const [filterLight, setFilterLight] = useState('All');
+    const [filterWater, setFilterWater] = useState('All');
 
 
     useEffect(() => {

@@ -20,7 +20,7 @@ if(showFilter === false){
     return (
             <div id="button-hide-filter">
             <button onClick={() => {setShowFilter(false); setFilterText('');
-                                    setFilterLight('None'); setFilterWater('None');
+                                    setFilterLight('All'); setFilterWater('All');
                                     setIsPetFriendly(false);}}
                                     className = "button">Remove Filter Settings</button>
             <br/>
@@ -32,7 +32,7 @@ if(showFilter === false){
             {/* Allows the user to filter by light amount*/}
             <label>Filter by Light Amount: </label>
             <select onChange={(e) => setFilterLight(e.target.value)}>
-              <option value='None'>None</option>
+              <option value='All'>All</option>
               <option value='Low'>Low</option>
               <option value='Medium'>Medium</option>
               <option value='High'>High</option>
@@ -41,7 +41,7 @@ if(showFilter === false){
             {/* Allows the user to filter by water amount*/}
             <label>Filter by Water Amount: </label>
             <select onChange={(e) => setFilterWater(e.target.value)}>
-               <option value='None'>None</option>
+               <option value='All'>All</option>
                <option value='Low'>Low</option>
                <option value='Medium'>Medium</option>
                <option value='High'>High</option>
