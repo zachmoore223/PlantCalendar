@@ -10,8 +10,8 @@ const [viewAboutHydroHomie, setViewAboutHydroHomie] = useState(false);
             <div>
                 {/* a button to hide the citations */}
                 <button className="linksButton" onClick={() => setViewAboutHydroHomie(false)}> Hide </button>
-                <div className="aboutHydroHomie">
                 {/* the citations */}
+                <div className="aboutHydroHomie">
                 <h3> What is HydroHomie? </h3>
                 <p>
                     HydroHomie is a convenient app that allows you to add plants to a cart from a

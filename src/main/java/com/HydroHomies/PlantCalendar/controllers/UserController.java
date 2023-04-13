@@ -69,17 +69,6 @@ public class UserController {
         userRepository.save(user);
     }
 
-    // This method uses the PUT method to add a new plant to the collection of a specific user in the database using their username and the plant object.
-    @PutMapping("/users/{username}/plantCollection")
-    public void addNewPlantToUser(@PathVariable String username, @RequestBody Plant plant) throws Exception {
-        // Call the findById() method of the userRepository to retrieve the user with the given username.
-        // If the user doesn't exist, throw a new Exception with a custom message.
-        User user = userRepository.findById(username).orElseThrow(() -> new Exception("Username not found: " + username));
-        // Call the addPlant() method of the user to add the new plant to their collection.
-        user.addPlant(plant);
-        // Call the save() method of the userRepository to update the user's data in the database.
-        userRepository.save(user);
-    }
 
     // This method uses the DELETE method to remove a specific plant from the collection of a specific user in the database using their username and the plant id.
     @DeleteMapping("/users/{username}/plantCollection/{plant_id}")
