@@ -24,7 +24,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                             I have a solid working knowledge of basic coding languages, including Java and HTML5.
                             I am committed to ongoing professional development that furthers my knowledge.
                         </figcaption>
-                        <a href="https://www.linkedin.com/in/aduniatsehaie/">
+                        <a href="https://www.linkedin.com/in/aduniatsehaie/" target="_blank">
                             <img src={linkedIn} className="linkedIn" />
                         </a>
                     </figure>
@@ -37,7 +37,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                             Born in Argentina, and emigrated to the States in 2019.
                             Currently developing my knowledge in Software Development.
                         </figcaption>
-                        <a href="https://www.linkedin.com/in/gabriel-gingins-483b57264/">
+                        <a href="https://www.linkedin.com/in/gabriel-gingins-483b57264/" target="_blank">
                             <img src={linkedIn} className="linkedIn" />
                         </a>
                     </figure>
@@ -50,7 +50,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                             through the application of data, analytics, and information technology.
                             Exceptional collaborator with a team-first and customer service mindset.
                         </figcaption>
-                        <a href="https://www.linkedin.com/in/josef-pohlmann-b20b72213/">
+                        <a href="https://www.linkedin.com/in/josef-pohlmann-b20b72213/" target="_blank">
                             <img src={linkedIn} className="linkedIn" />
                         </a>
                     </figure>
@@ -63,7 +63,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                             I have five years of highly diverse technical training and experience, including leading and mentoring team members, troubleshooting
                             multiple complex technologies, organizational and logistics planning, and attention to detail.
                         </figcaption>
-                        <a href="https://www.linkedin.com/in/thomasaxlemartin/">
+                        <a href="https://www.linkedin.com/in/thomasaxlemartin/" target="_blank">
                             <img src={linkedIn} className="linkedIn" />
                         </a>
                     </figure>
@@ -75,7 +75,7 @@ const [viewAboutUs, setViewAboutUs] = useState(false);
                             Bodily Injury Claims Adjuster transitioning into a Software Development role. Graduated from an intensive coding bootcamp with a Certificate of Software Development.
                             Built front-end and back-end web applications using Java, JavaScript, HTML, CSS, React, Spring Boot and other frameworks.
                         </figcaption>
-                        <a href="https://www.linkedin.com/in/zachmoore223/">
+                        <a href="https://www.linkedin.com/in/zachmoore223/" target="_blank">
                             <img src={linkedIn} className="linkedIn" />
                         </a>
                     </figure>
