@@ -241,7 +241,7 @@ figcaption {
 .displayLogin{
    font-size: 15px;
    margin-top: 20px;
-   margin-right: 20px;
+   margin-right: 50px;
    position:absolute;
    top:0;
    right:0;
@@ -282,4 +282,261 @@ figcaption {
 
 .noPlant {
 padding: 100px 450px;
+}
+
+/* 1100 Pixel Width Settings */
+@media only screen and (max-width: 1100px){
+    .logoImage{
+        flex: auto;
+        max-width: 65%;
+        }
+
+    .displayLogin{
+       font-size: 15px;
+       margin-top: 10px;
+       margin-right: 55px;
+       }
+
+    .logoutButton{
+       font-size: 15px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+      tr {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      td {
+            text-align: center;
+        width: calc(100% / 4);
+      }
+
+
+}
+
+/* 950 Pixel Width Settings */
+@media only screen and (max-width: 950px){
+
+    .logoImage{
+        flex: auto;
+        max-width: 55%;
+        }
+
+    .displayLogin{
+       font-size: 10px;
+       margin-top: 5px;
+       margin-right: 55px;
+       }
+
+    .logoutButton{
+       font-size: 10px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+
+    [id^="plantImage_"] {
+      max-width: 175px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  td {
+        text-align: center;
+    width: calc(100% / 3);
+  }
+
+
+}
+
+/* 650 Pixel Width Settings */
+@media only screen and (max-width: 650px){
+
+    .logoImage{
+        flex: auto;
+        max-width: 35%;
+        }
+
+    .displayLogin{
+       font-size: 10px;
+       margin-top: 5px;
+       margin-right: 55px;
+       }
+
+    .logoutButton{
+       font-size: 10px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+
+    [id^="plantImage_"] {
+      max-width: 175px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  td {
+        text-align: center;
+    width: calc(100% / 3);
+  }
+
+}
+
+/* 550 Pixel Width Settings */
+@media only screen and (max-width: 550px){
+
+    .logoImage{
+        flex: auto;
+        max-width: 35%;
+        }
+
+    .displayLogin{
+       margin-top: 45px;
+       margin-right: 185px;
+       font-size: 10px;
+       }
+
+    .logoutButton{
+       font-size: 10px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+    .loginDiv {
+        display: block;
+    }
+
+    .plant-container{
+    font-size: 10px;
+    }
+
+    plant-info > p{
+    font-size: 5px;
+    }
+
+        [id^="plantImage_"] {
+          max-width: 175px;
+        }
+
+      td {
+        display: block;
+        width: 100%;
+      }
+
+}
+
+/* 500 Pixel Width Settings */
+@media only screen and (max-width: 500px){
+
+    .logoImage{
+        flex: auto;
+        max-width: 35%;
+        }
+
+    .displayLogin{
+       margin-top: 80px;
+       margin-right: 185px;
+       font-size: 10px;
+       }
+
+    .logoutButton{
+       font-size: 10px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+    .loginDiv {
+        display: block;
+    }
+
+    .plant-container{
+    font-size: 10px;
+    }
+
+    plant-info > p{
+    font-size: 5px;
+    }
+
+        [id^="plantImage_"] {
+          max-width: 175px;
+        }
+
+      td {
+        display: block;
+        width: 100%;
+      }
+
+}
+
+/* 500 Pixel Width Settings */
+@media only screen and (max-width: 475px){
+
+    .logoImage{
+        flex: auto;
+        max-width: 35%;
+        }
+
+    .displayLogin{
+       margin-top: 80px;
+       margin-right: 185px;
+       font-size: 10px;
+       }
+
+    .logoutButton{
+       font-size: 10px;
+       background-color: rgb(148, 175, 159);
+       color: white;
+       margin-left: 5px;
+    }
+
+    .loginDiv {
+        display: block;
+    }
+
+    .plant-container{
+    font-size: 10px;
+    }
+
+    plant-info > p{
+    font-size: 5px;
+    }
+
+        [id^="plantImage_"] {
+          max-width: 175px;
+        }
+
+      td {
+        display: block;
+        width: 100%;
+      }
+
 }
