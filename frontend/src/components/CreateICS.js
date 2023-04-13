@@ -41,7 +41,7 @@ export default function CreateICS({ user }) {
         // Create a blob containing the ICS file and download it as "event-schedule.ics".
         const handleSave = () => {
             const blob = new Blob([value], { type: "text/plain;charset=utf-8" });
-            saveAs(blob, "event-schedule.ics");
+            saveAs(blob, "plant-schedule.ics");
         };
         handleSave();
     }
