@@ -10,14 +10,16 @@ const [viewAboutHydroHomie, setViewAboutHydroHomie] = useState(false);
             <div>
                 {/* a button to hide the citations */}
                 <button className="linksButton" onClick={() => setViewAboutHydroHomie(false)}> Hide </button>
+                <div className="aboutHydroHomie">
                 {/* the citations */}
-                <p className="aboutHydroHomie">
                 <h3> What is HydroHomie? </h3>
+                <p>
                     HydroHomie is a convenient app that allows you to add plants to a cart from a
                     collection of the most popular house plants. Once you have your house plants
                     added to your cart, you can download a watering schedule based on your cart and add
                     it to your preferred calendar account.
                 </p>
+                </div>
             </div>
         );
     }
